@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3179933255274001213}
   - component: {fileID: 3179933255274001212}
   - component: {fileID: 3179933255274001345}
+  - component: {fileID: 1173967369}
   m_Layer: 0
   m_Name: Squad
   m_TagString: Untagged
@@ -128,6 +129,22 @@ MonoBehaviour:
   inRange: 0
   maxHarvest: 250
   foodHarvested: 0
+--- !u!114 &1173967369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3179933255274001211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 810ca586ec9170e4b86bab0b0713a685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  minExecDist: 2
+  cost: 1
+  inRange: 0
 --- !u!1 &3179933255341002975
 GameObject:
   m_ObjectHideFlags: 0

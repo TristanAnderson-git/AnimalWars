@@ -175,7 +175,7 @@ public class Squad : MonoBehaviour, GOAP.Interface
 
         goal = new HashSet<KeyValuePair<ActionKey, object>>
         {
-            new KeyValuePair<ActionKey, object>(ActionKey.GatherResource, true)
+            new KeyValuePair<ActionKey, object>(secondayGoalKey, true)
         };
 
         return goal;

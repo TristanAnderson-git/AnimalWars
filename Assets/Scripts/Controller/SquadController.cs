@@ -10,6 +10,7 @@ public class SquadController : MonoBehaviour
     public GameObject unitPrefab;
     public GameObject unitBase;
     public GameObject farmland;
+    public GameObject enemy;
 
     void Start()
     {
@@ -28,6 +29,7 @@ public class SquadController : MonoBehaviour
                 //Set Action Targets
                 go.GetComponent<ActionGatherFood>().target = unitBase;
                 go.GetComponent<ActionHarvestFood>().target = farmland;
+                go.GetComponent<ActionAttackTarget>().target = enemy;
 
                 yield return null;
             }

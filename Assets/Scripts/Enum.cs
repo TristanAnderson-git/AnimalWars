@@ -35,5 +35,7 @@ namespace GOAP
         DefendBase,
         HarvestResource,
         GatherResource,
+		AttackTarget,
+		NewAction,
     };
 }
