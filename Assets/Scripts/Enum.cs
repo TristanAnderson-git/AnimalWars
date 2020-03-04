@@ -29,6 +29,7 @@ namespace GOAP
     // List of Action Keys
     public enum ActionKey
     {
+        None = 0,
         StayAlive,
         KillEnemy,
         DestroyBase,
@@ -36,6 +37,5 @@ namespace GOAP
         HarvestResource,
         GatherResource,
 		AttackTarget,
-		NewAction,
     };
 }

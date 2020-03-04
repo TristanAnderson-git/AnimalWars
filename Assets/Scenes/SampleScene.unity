@@ -657,9 +657,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   owner: 0
-  hasSquad: 0
-  squad: {fileID: 0}
-  relativePositive: {x: 0, y: 0, z: 0}
 --- !u!1 &1830528048
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,6 +800,7 @@ GameObject:
   - component: {fileID: 1987950870}
   - component: {fileID: 1987950869}
   - component: {fileID: 1987950868}
+  - component: {fileID: 1987950871}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -858,3 +856,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1987950871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987950867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 439d723a00e19e74e9edd7ee3c4f0e74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orderOptions:
+  - button: 
+    order: {fileID: 0}
+  - button: 
+    order: {fileID: 0}
+  - button: 
+    order: {fileID: 0}
+  - button: 
+    order: {fileID: 0}
+  radius: 0
+  unitLayer:
+    serializedVersion: 2
+    m_Bits: 0

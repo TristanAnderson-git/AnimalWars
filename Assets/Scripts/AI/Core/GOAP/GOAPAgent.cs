@@ -12,7 +12,7 @@ public sealed class GOAPAgent : MonoBehaviour
 
 	private HashSet<GOAP.Action> availableActions = null;
 	public Queue<GOAP.Action> currentActions = null;
-	public GOAP.Action[] actions = null;
+    public GOAP.Action[] actions = null;
 
     private GOAP.Interface dataProvider;
 
@@ -84,7 +84,7 @@ public sealed class GOAPAgent : MonoBehaviour
             }
             else
             {
-                Debug.Log("<color=orange>Failed Plan:</color>" + PrettyPrint(goal));
+                Debug.Log("<color=orange>Failed Plan:</color>" + ToString(goal));
                 dataProvider.PlanFailed(goal);
                 fsm.PopState();
                 fsm.PushState(idleState);
@@ -143,18 +143,17 @@ public sealed class GOAPAgent : MonoBehaviour
 				{
 					bool success = action.Perform(gameObj);
 
-					if (!success)
-					{
-						fsm.PopState();
-						fsm.PushState(idleState);
-						dataProvider.PlanAborted(action);
-					}
-				}
+                    // If action fails, abort plan
+                    if (!success)
+                    {
+                        OverridePlan(fsm);
+                        dataProvider.PlanAborted(action);
+                    }
+                }
 				else
 				{
 					fsm.PushState(moveToState);
 				}
-
 			}
 			else
 			{
@@ -166,7 +165,16 @@ public sealed class GOAPAgent : MonoBehaviour
 		};
 	}
 
-	private void FindDataProvider()
+    public void OverridePlan(FSM fsm = null)
+    {
+        if (fsm == null)
+            fsm = stateMachine;
+
+        fsm.PopState();
+        fsm.PushState(idleState);
+    }
+
+    private void FindDataProvider()
 	{
 		foreach (Component comp in gameObject.GetComponents(typeof(Component)))
 		{
@@ -187,7 +195,7 @@ public sealed class GOAPAgent : MonoBehaviour
 		}
 	}
 
-	public static string PrettyPrint(HashSet<KeyValuePair<GOAP.ActionKey, object>> state)
+	public static string ToString(HashSet<KeyValuePair<GOAP.ActionKey, object>> state)
 	{
 		String s = "";
 		foreach (KeyValuePair<GOAP.ActionKey, object> kvp in state)
@@ -198,7 +206,7 @@ public sealed class GOAPAgent : MonoBehaviour
 		return s;
 	}
 
-	public static string PrettyPrint(Queue<GOAP.Action> actions)
+	public static string ToString(Queue<GOAP.Action> actions)
 	{
 		String s = "";
 		foreach (GOAP.Action a in actions)
@@ -210,7 +218,7 @@ public sealed class GOAPAgent : MonoBehaviour
 		return s;
 	}
 
-	public static string PrettyPrint(GOAP.Action[] actions)
+	public static string ToString(GOAP.Action[] actions)
 	{
 		String s = "";
 		foreach (GOAP.Action a in actions)
@@ -221,7 +229,7 @@ public sealed class GOAPAgent : MonoBehaviour
 		return s;
 	}
 
-	public static string PrettyPrint(GOAP.Action action)
+	public static string ToString(GOAP.Action action)
 	{
 		String s = "" + action.GetType().Name;
 		return s;

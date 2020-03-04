@@ -15,7 +15,6 @@ public class ActionStayAlive : Action
     public ActionStayAlive()
     {
         AddEffect(ActionKey.StayAlive, true);
-        cost = 1.0f;
     }
 
     public override bool CheckPreconditions(GameObject agent)

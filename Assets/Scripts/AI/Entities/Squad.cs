@@ -7,31 +7,23 @@ using System.Collections.Generic;
 [RequireComponent(typeof(NavMeshAgent))]
 public class Squad : MonoBehaviour, GOAP.Interface
 {
-    public int maxSquadSize;
-    public List<Unit> units;
-    public LayerMask unitMask;
-    public float unitSearchRadius;
-    public float unitPositionRadius;
-    public bool uberCharged; // True if squad currently holds more units than the maximum squad size;
-    public int squadSizeAffordance;
-
-    public int Size { get { return units.Count; } }
-
+    private GOAPAgent goapAgent;
     private NavMeshAgent navAgent;
 
-    public int currentCommand;
-    private int previousCommand;
+    public byte CurrentOrderPriority { get { return (currentOrder != null) ? currentOrder.priority : (byte)0; } } 
+    private Order currentOrder = null;
     public ActionKey secondayGoalKey;
 
     private HashSet<KeyValuePair<ActionKey, object>> goal;
-    private KeyValuePair<ActionKey, object> secondaryGoal;
-
+    
     void Start()
     {
         goal = new HashSet<KeyValuePair<ActionKey, object>>();
-        units = new List<Unit>();
 
+        goapAgent = GetComponent<GOAPAgent>();
         navAgent = GetComponent<NavMeshAgent>();
+
+        GiveOrder(new Order { goal = ActionKey.KillEnemy });
     }
 
     void Update()
@@ -39,94 +31,15 @@ public class Squad : MonoBehaviour, GOAP.Interface
         
     }
 
-    void FixedUpdate()
+    public void GiveOrder(Order order)
     {
-        if (Size < maxSquadSize)
-            FindUnits();
+        currentOrder = order;
+        goapAgent.OverridePlan();
     }
 
-    void FindUnits()
-    {
-        Collider[] unitsFound = Physics.OverlapSphere(transform.position, unitSearchRadius, unitMask);
-        if (unitsFound.Length > 0)
-        {
-            for (int i = 0; i < unitsFound.Length; i++)
-            {
-                if (Size >= maxSquadSize)
-                    break;
-
-                Unit unit = unitsFound[i].GetComponent<Unit>();
-                
-                if (unit.hasSquad && unit.squad != this) 
-                {
-                    Squad foreignSquad = unit.squad;
-
-                    if (foreignSquad.uberCharged)
-                        foreignSquad.TransferUnit(unit, this);
-                    
-                    else if (Size + foreignSquad.Size <= squadSizeAffordance + maxSquadSize) 
-                    {
-                        for (int u = 0; u < foreignSquad.Size; u++)
-                            foreignSquad.TransferUnit(foreignSquad.units[u], this);
-
-                        if (Size > maxSquadSize)
-                            uberCharged = true;
-                    }
-                }
-
-                AddUnit(unit);
-            }
-        }
-    }
-
-    public void AddUnit(Unit unit)
-    {
-        unit.SetupSquad(this);
-        units.Add(unit);
-
-        uberCharged = Size > maxSquadSize;
-    }
-    public void TransferUnit(Unit unitToTransfer, Squad recipientSquad)
-    {
-        units.Remove(unitToTransfer);
-        recipientSquad.AddUnit(unitToTransfer);
-    
-        uberCharged = Size > maxSquadSize;
-
-        if (Size == 0)
-            Destroy(gameObject);
-    }
-    
-    public void UpdateUnitPosition()
-    {
-        float distanceRatio = 1;
-
-        NavMeshHit hit;
-        if (NavMesh.FindClosestEdge(transform.position, out hit, NavMesh.AllAreas))
-        {
-            if (hit.distance > unitPositionRadius)
-            {
-                distanceRatio = hit.distance / unitPositionRadius;
-            }
-        }
-
-        for (int i = 0; i < Size; i++)
-        {
-            if (units[i].moveRoutine != null)
-                StopCoroutine(units[i].moveRoutine);
-
-            Vector3 destination = units[i].relativePositive * distanceRatio;
-            units[i].moveRoutine = StartCoroutine(units[i].Move(destination));
-        }
-    }
-
-    public void GiveCommand(int command)
-    {
-        currentCommand = command;
-    }
     public void GiveSecondaryGoal(ActionKey goal)
     {
-        secondaryGoal = new KeyValuePair<ActionKey, object>(goal, true);
+        secondayGoalKey = goal;
     }
 
     HashSet<KeyValuePair<ActionKey, object>> worldData = new HashSet<KeyValuePair<ActionKey, object>>
@@ -145,37 +58,9 @@ public class Squad : MonoBehaviour, GOAP.Interface
 
     public HashSet<KeyValuePair<ActionKey, object>> CreateGoalState()
     {
-        /*
-        if (previousCommand == currentCommand)
-            return goal;
-
         goal = new HashSet<KeyValuePair<ActionKey, object>>
         {
-            // Default goal, all squads should attempt to kill an enemy squad before proceeding to other goals
-            new KeyValuePair<ActionKey, object>(ActionKey.KillEnemy, true),
-            new KeyValuePair<ActionKey, object>(ActionKey.StayAlive, true)
-        };
-
-        switch (currentCommand)
-        {
-            case 0: // Attack;
-                goal.Add(new KeyValuePair<ActionKey, object>(ActionKey.DestroyBase, true));
-                return goal;
-            case 1: // Defend;
-                goal.Add(new KeyValuePair<ActionKey, object>(ActionKey.DefendBase, true));
-                return goal;
-            case 2: // Search;
-                goal.Add(new KeyValuePair<ActionKey, object>(ActionKey.GatherResource, true));
-                return goal;
-            default: // No current command
-                goal.Add(secondaryGoal);
-                return goal;
-        }
-        */
-
-        goal = new HashSet<KeyValuePair<ActionKey, object>>
-        {
-            new KeyValuePair<ActionKey, object>(secondayGoalKey, true)
+            new KeyValuePair<ActionKey, object>((currentOrder != null) ? currentOrder.goal : secondayGoalKey, true)
         };
 
         return goal;
@@ -183,10 +68,12 @@ public class Squad : MonoBehaviour, GOAP.Interface
 
     public void PlanAborted(Action aborter)
     {
+        ResetActiveGoal();
     }
 
     public void PlanFailed(HashSet<KeyValuePair<ActionKey, object>> failedGoal)
     {
+        ResetActiveGoal();
     }
 
     public void PlanFound(HashSet<KeyValuePair<ActionKey, object>> goal, Queue<Action> actions)
@@ -195,6 +82,13 @@ public class Squad : MonoBehaviour, GOAP.Interface
 
     public void ActionsFinished()
     {
+        ResetActiveGoal();
+    }
+
+    public void ResetActiveGoal()
+    {
+        if (currentOrder != null)
+            currentOrder = null;
     }
 
     public bool MoveAgent(Action nextAction)

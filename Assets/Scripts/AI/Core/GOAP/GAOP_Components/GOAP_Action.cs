@@ -10,7 +10,7 @@ namespace GOAP
 
         public GameObject target;
         public float minExecDist;
-        public float cost = 1.0f;
+        public byte cost = 1;
         [HideInInspector]
         public bool inRange = false;
 
