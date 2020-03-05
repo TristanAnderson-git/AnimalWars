@@ -29,7 +29,6 @@ public class ActionStayAlive : Action
 
     public override bool Perform(GameObject agent)
     {
-        print("I am currently alive");
         isFinished = true;
         return true;
     }

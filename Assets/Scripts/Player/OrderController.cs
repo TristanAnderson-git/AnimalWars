@@ -59,13 +59,11 @@ public class OrderController : MonoBehaviour
 
     private void GiveOrder(GOAP.Order order)
     {
-        Debug.Log("Hello");
-
         Collider[] units = Physics.OverlapSphere(transform.position, radius, unitLayer);
         
         for (int i = 0; i < units.Length; i++)
         {
-            Squad unit = units[i].GetComponent<Squad>();
+            Unit unit = units[i].GetComponent<Unit>();
 
             if (unit != null)
             {
