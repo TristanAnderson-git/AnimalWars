@@ -3,16 +3,9 @@ using UnityEngine.InputSystem;
 
 public class OrderController : MonoBehaviour
 {
-    [System.Serializable]
-    public struct OrderOption
-    {
-        public string button;
-        public GOAP.Order order;
-    }
-
     private PlayerControls controls;
 
-    public OrderOption[] orderOptions = new OrderOption[4];
+    public GOAP.Order[] orderOptions = new GOAP.Order[4];
     public float radius;
     public LayerMask unitLayer;
 
@@ -24,25 +17,25 @@ public class OrderController : MonoBehaviour
 
         controls = new PlayerControls();
 
-        controls.Gameplay.Order_0.performed += ctx => activeOrders[0] = true;
-        controls.Gameplay.Order_1.performed += ctx => activeOrders[1] = true;
-        controls.Gameplay.Order_2.performed += ctx => activeOrders[2] = true;
-        controls.Gameplay.Order_3.performed += ctx => activeOrders[3] = true;
+        controls.Orders.Order_0.performed += ctx => activeOrders[0] = true;
+        controls.Orders.Order_1.performed += ctx => activeOrders[1] = true;
+        controls.Orders.Order_2.performed += ctx => activeOrders[2] = true;
+        controls.Orders.Order_3.performed += ctx => activeOrders[3] = true;
 
-        controls.Gameplay.Order_0.canceled += ctx => activeOrders[0] = false;
-        controls.Gameplay.Order_1.canceled += ctx => activeOrders[1] = false;
-        controls.Gameplay.Order_2.canceled += ctx => activeOrders[2] = false;
-        controls.Gameplay.Order_3.canceled += ctx => activeOrders[3] = false;
+        controls.Orders.Order_0.canceled += ctx => activeOrders[0] = false;
+        controls.Orders.Order_1.canceled += ctx => activeOrders[1] = false;
+        controls.Orders.Order_2.canceled += ctx => activeOrders[2] = false;
+        controls.Orders.Order_3.canceled += ctx => activeOrders[3] = false;
     }
 
     private void OnEnable()
     {
-        controls.Gameplay.Enable();
+        controls.Orders.Enable();
     }
 
     private void OnDisable()
     {
-        controls.Gameplay.Disable();
+        controls.Orders.Disable();
     }
 
     private void Update()
@@ -51,7 +44,7 @@ public class OrderController : MonoBehaviour
         {
             if (activeOrders[i])
             {
-                GiveOrder(orderOptions[i].order);
+                GiveOrder(orderOptions[i]);
                 break;
             }
         }

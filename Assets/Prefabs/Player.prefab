@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 5029008915812844076}
   - component: {fileID: 5029008915812844079}
   - component: {fileID: -6603761947878689161}
+  - component: {fileID: -1986540422902494403}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -177,15 +178,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orderOptions:
-  - button: 
-    order: {fileID: 0}
-  - button: 
-    order: {fileID: 0}
-  - button: 
-    order: {fileID: 0}
-  - button: 
-    order: {fileID: 0}
-  radius: 0
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  radius: 5
   unitLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
+--- !u!114 &-1986540422902494403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5029008915812844078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a2cc242bca6474c8c7194c518847b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildings:
+  - {fileID: 0}
+  buildDistance: 1

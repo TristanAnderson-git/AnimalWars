@@ -2,7 +2,7 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "Gameplay",
+            "name": "Orders",
             "id": "ff574345-7c56-4903-9cd1-fb179373f515",
             "actions": [
                 {
@@ -80,6 +80,109 @@
                     "processors": "",
                     "groups": "",
                     "action": "Order_3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Construction",
+            "id": "e5a11009-fdaa-49d3-9386-efbd8198f99f",
+            "actions": [
+                {
+                    "name": "RightStick",
+                    "type": "Value",
+                    "id": "318200be-ccad-40e6-8d1b-68db4ee2c4cf",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "CancelBuild",
+                    "type": "Button",
+                    "id": "e99245d6-67ea-4f7a-b7e2-91493a72c335",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Build",
+                    "type": "Button",
+                    "id": "34a99d64-3010-4ca6-b638-4f3212c0d82d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SwapNext",
+                    "type": "Button",
+                    "id": "c1cbca07-2ecf-42e6-9eb8-b4521e568327",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SwapPrevious",
+                    "type": "Button",
+                    "id": "ae0cde4c-0bc0-4fdc-9b78-707cb3120aa6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ebe48b07-389e-4015-b280-67c37747af7d",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Build",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "33ec323f-d71b-4750-bd11-4c04325e57e6",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CancelBuild",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5730cbb9-b384-4781-9f35-4a3206e67769",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightStick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "590b27d2-61b6-497a-96c3-bfc90dafa6b6",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwapNext",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "37f8408c-65d0-41b8-b9d6-081aa4080cbe",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwapPrevious",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

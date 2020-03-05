@@ -5,13 +5,14 @@ public abstract class Building : Entity
 {
     public float refreshTime = 0.0f;
     public float buildTime = 1.0f;
+    public bool placed = false;
 
     [HideInInspector]
     public float progress = 0.0f;
 
     protected Coroutine currentState = null;
 
-    public void Init()
+    public void Spawn()
     {
         if (currentState == null)
             StartCoroutine(Build());

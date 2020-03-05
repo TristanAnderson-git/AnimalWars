@@ -15,7 +15,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     ""name"": ""PlayerControls"",
     ""maps"": [
         {
-            ""name"": ""Gameplay"",
+            ""name"": ""Orders"",
             ""id"": ""ff574345-7c56-4903-9cd1-fb179373f515"",
             ""actions"": [
                 {
@@ -97,16 +97,126 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Construction"",
+            ""id"": ""e5a11009-fdaa-49d3-9386-efbd8198f99f"",
+            ""actions"": [
+                {
+                    ""name"": ""RightStick"",
+                    ""type"": ""Value"",
+                    ""id"": ""318200be-ccad-40e6-8d1b-68db4ee2c4cf"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""CancelBuild"",
+                    ""type"": ""Button"",
+                    ""id"": ""e99245d6-67ea-4f7a-b7e2-91493a72c335"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Build"",
+                    ""type"": ""Button"",
+                    ""id"": ""34a99d64-3010-4ca6-b638-4f3212c0d82d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""SwapNext"",
+                    ""type"": ""Button"",
+                    ""id"": ""c1cbca07-2ecf-42e6-9eb8-b4521e568327"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""SwapPrevious"",
+                    ""type"": ""Button"",
+                    ""id"": ""ae0cde4c-0bc0-4fdc-9b78-707cb3120aa6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""ebe48b07-389e-4015-b280-67c37747af7d"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Build"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""33ec323f-d71b-4750-bd11-4c04325e57e6"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CancelBuild"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5730cbb9-b384-4781-9f35-4a3206e67769"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightStick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""590b27d2-61b6-497a-96c3-bfc90dafa6b6"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwapNext"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""37f8408c-65d0-41b8-b9d6-081aa4080cbe"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwapPrevious"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
 }");
-        // Gameplay
-        m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
-        m_Gameplay_Order_0 = m_Gameplay.FindAction("Order_0", throwIfNotFound: true);
-        m_Gameplay_Order_1 = m_Gameplay.FindAction("Order_1", throwIfNotFound: true);
-        m_Gameplay_Order_2 = m_Gameplay.FindAction("Order_2", throwIfNotFound: true);
-        m_Gameplay_Order_3 = m_Gameplay.FindAction("Order_3", throwIfNotFound: true);
+        // Orders
+        m_Orders = asset.FindActionMap("Orders", throwIfNotFound: true);
+        m_Orders_Order_0 = m_Orders.FindAction("Order_0", throwIfNotFound: true);
+        m_Orders_Order_1 = m_Orders.FindAction("Order_1", throwIfNotFound: true);
+        m_Orders_Order_2 = m_Orders.FindAction("Order_2", throwIfNotFound: true);
+        m_Orders_Order_3 = m_Orders.FindAction("Order_3", throwIfNotFound: true);
+        // Construction
+        m_Construction = asset.FindActionMap("Construction", throwIfNotFound: true);
+        m_Construction_RightStick = m_Construction.FindAction("RightStick", throwIfNotFound: true);
+        m_Construction_CancelBuild = m_Construction.FindAction("CancelBuild", throwIfNotFound: true);
+        m_Construction_Build = m_Construction.FindAction("Build", throwIfNotFound: true);
+        m_Construction_SwapNext = m_Construction.FindAction("SwapNext", throwIfNotFound: true);
+        m_Construction_SwapPrevious = m_Construction.FindAction("SwapPrevious", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -153,44 +263,44 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         asset.Disable();
     }
 
-    // Gameplay
-    private readonly InputActionMap m_Gameplay;
-    private IGameplayActions m_GameplayActionsCallbackInterface;
-    private readonly InputAction m_Gameplay_Order_0;
-    private readonly InputAction m_Gameplay_Order_1;
-    private readonly InputAction m_Gameplay_Order_2;
-    private readonly InputAction m_Gameplay_Order_3;
-    public struct GameplayActions
+    // Orders
+    private readonly InputActionMap m_Orders;
+    private IOrdersActions m_OrdersActionsCallbackInterface;
+    private readonly InputAction m_Orders_Order_0;
+    private readonly InputAction m_Orders_Order_1;
+    private readonly InputAction m_Orders_Order_2;
+    private readonly InputAction m_Orders_Order_3;
+    public struct OrdersActions
     {
         private @PlayerControls m_Wrapper;
-        public GameplayActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Order_0 => m_Wrapper.m_Gameplay_Order_0;
-        public InputAction @Order_1 => m_Wrapper.m_Gameplay_Order_1;
-        public InputAction @Order_2 => m_Wrapper.m_Gameplay_Order_2;
-        public InputAction @Order_3 => m_Wrapper.m_Gameplay_Order_3;
-        public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
+        public OrdersActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Order_0 => m_Wrapper.m_Orders_Order_0;
+        public InputAction @Order_1 => m_Wrapper.m_Orders_Order_1;
+        public InputAction @Order_2 => m_Wrapper.m_Orders_Order_2;
+        public InputAction @Order_3 => m_Wrapper.m_Orders_Order_3;
+        public InputActionMap Get() { return m_Wrapper.m_Orders; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(GameplayActions set) { return set.Get(); }
-        public void SetCallbacks(IGameplayActions instance)
+        public static implicit operator InputActionMap(OrdersActions set) { return set.Get(); }
+        public void SetCallbacks(IOrdersActions instance)
         {
-            if (m_Wrapper.m_GameplayActionsCallbackInterface != null)
+            if (m_Wrapper.m_OrdersActionsCallbackInterface != null)
             {
-                @Order_0.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOrder_0;
-                @Order_0.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOrder_0;
-                @Order_0.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOrder_0;
-                @Order_1.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOrder_1;
-                @Order_1.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOrder_1;
-                @Order_1.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOrder_1;
-                @Order_2.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOrder_2;
-                @Order_2.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOrder_2;
-                @Order_2.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOrder_2;
-                @Order_3.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOrder_3;
-                @Order_3.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOrder_3;
-                @Order_3.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOrder_3;
+                @Order_0.started -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_0;
+                @Order_0.performed -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_0;
+                @Order_0.canceled -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_0;
+                @Order_1.started -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_1;
+                @Order_1.performed -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_1;
+                @Order_1.canceled -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_1;
+                @Order_2.started -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_2;
+                @Order_2.performed -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_2;
+                @Order_2.canceled -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_2;
+                @Order_3.started -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_3;
+                @Order_3.performed -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_3;
+                @Order_3.canceled -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_3;
             }
-            m_Wrapper.m_GameplayActionsCallbackInterface = instance;
+            m_Wrapper.m_OrdersActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Order_0.started += instance.OnOrder_0;
@@ -208,12 +318,85 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             }
         }
     }
-    public GameplayActions @Gameplay => new GameplayActions(this);
-    public interface IGameplayActions
+    public OrdersActions @Orders => new OrdersActions(this);
+
+    // Construction
+    private readonly InputActionMap m_Construction;
+    private IConstructionActions m_ConstructionActionsCallbackInterface;
+    private readonly InputAction m_Construction_RightStick;
+    private readonly InputAction m_Construction_CancelBuild;
+    private readonly InputAction m_Construction_Build;
+    private readonly InputAction m_Construction_SwapNext;
+    private readonly InputAction m_Construction_SwapPrevious;
+    public struct ConstructionActions
+    {
+        private @PlayerControls m_Wrapper;
+        public ConstructionActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @RightStick => m_Wrapper.m_Construction_RightStick;
+        public InputAction @CancelBuild => m_Wrapper.m_Construction_CancelBuild;
+        public InputAction @Build => m_Wrapper.m_Construction_Build;
+        public InputAction @SwapNext => m_Wrapper.m_Construction_SwapNext;
+        public InputAction @SwapPrevious => m_Wrapper.m_Construction_SwapPrevious;
+        public InputActionMap Get() { return m_Wrapper.m_Construction; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ConstructionActions set) { return set.Get(); }
+        public void SetCallbacks(IConstructionActions instance)
+        {
+            if (m_Wrapper.m_ConstructionActionsCallbackInterface != null)
+            {
+                @RightStick.started -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnRightStick;
+                @RightStick.performed -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnRightStick;
+                @RightStick.canceled -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnRightStick;
+                @CancelBuild.started -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnCancelBuild;
+                @CancelBuild.performed -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnCancelBuild;
+                @CancelBuild.canceled -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnCancelBuild;
+                @Build.started -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnBuild;
+                @Build.performed -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnBuild;
+                @Build.canceled -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnBuild;
+                @SwapNext.started -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnSwapNext;
+                @SwapNext.performed -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnSwapNext;
+                @SwapNext.canceled -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnSwapNext;
+                @SwapPrevious.started -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnSwapPrevious;
+                @SwapPrevious.performed -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnSwapPrevious;
+                @SwapPrevious.canceled -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnSwapPrevious;
+            }
+            m_Wrapper.m_ConstructionActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @RightStick.started += instance.OnRightStick;
+                @RightStick.performed += instance.OnRightStick;
+                @RightStick.canceled += instance.OnRightStick;
+                @CancelBuild.started += instance.OnCancelBuild;
+                @CancelBuild.performed += instance.OnCancelBuild;
+                @CancelBuild.canceled += instance.OnCancelBuild;
+                @Build.started += instance.OnBuild;
+                @Build.performed += instance.OnBuild;
+                @Build.canceled += instance.OnBuild;
+                @SwapNext.started += instance.OnSwapNext;
+                @SwapNext.performed += instance.OnSwapNext;
+                @SwapNext.canceled += instance.OnSwapNext;
+                @SwapPrevious.started += instance.OnSwapPrevious;
+                @SwapPrevious.performed += instance.OnSwapPrevious;
+                @SwapPrevious.canceled += instance.OnSwapPrevious;
+            }
+        }
+    }
+    public ConstructionActions @Construction => new ConstructionActions(this);
+    public interface IOrdersActions
     {
         void OnOrder_0(InputAction.CallbackContext context);
         void OnOrder_1(InputAction.CallbackContext context);
         void OnOrder_2(InputAction.CallbackContext context);
         void OnOrder_3(InputAction.CallbackContext context);
+    }
+    public interface IConstructionActions
+    {
+        void OnRightStick(InputAction.CallbackContext context);
+        void OnCancelBuild(InputAction.CallbackContext context);
+        void OnBuild(InputAction.CallbackContext context);
+        void OnSwapNext(InputAction.CallbackContext context);
+        void OnSwapPrevious(InputAction.CallbackContext context);
     }
 }
