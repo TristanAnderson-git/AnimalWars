@@ -30,12 +30,14 @@ public class OrderController : MonoBehaviour
 
     private void OnEnable()
     {
-        controls.Orders.Enable();
+        if (controls != null)
+            controls.Orders.Enable();
     }
 
     private void OnDisable()
     {
-        controls.Orders.Disable();
+        if (controls != null)
+            controls.Orders.Disable();
     }
 
     private void Update()

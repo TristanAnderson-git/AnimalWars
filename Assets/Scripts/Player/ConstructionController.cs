@@ -17,7 +17,7 @@ public class ConstructionController : MonoBehaviour
     private Vector3 pos;
     private Quaternion rot;
 
-    void Start()
+    private void Awake()
     {
         currentIndex = 0;
         selected = buildings[currentIndex];
@@ -34,7 +34,7 @@ public class ConstructionController : MonoBehaviour
         controls.Construction.SwapPrevious.performed += ctx => Swap(-1);
     }
 
-    void Update()
+    private void Update()
     {
         if (showPreview)
             Preview();
@@ -42,12 +42,14 @@ public class ConstructionController : MonoBehaviour
 
     private void OnEnable()
     {
-        controls.Construction.Enable();
+        if (controls != null)
+            controls.Construction.Enable();
     }
 
     private void OnDisable()
     {
-        controls.Construction.Disable();
+        if (controls != null)
+            controls.Construction.Disable();
     }
 
     void Swap(int direction)

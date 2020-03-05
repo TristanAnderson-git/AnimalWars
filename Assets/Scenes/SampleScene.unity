@@ -655,7 +655,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1483233695}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cee72e3f5b639a543b2f6cd07a21aa22, type: 3}
+  m_Script: {fileID: 11500000, guid: bf0d82407dfed88448eceaabe8d18466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
@@ -785,6 +785,7 @@ GameObject:
   - component: {fileID: 1957768570}
   - component: {fileID: 1957768569}
   - component: {fileID: 1957768571}
+  - component: {fileID: 1957768572}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -844,6 +845,53 @@ MonoBehaviour:
   unitBase: {fileID: 1830528048}
   farmland: {fileID: 1033724590}
   enemy: {fileID: 1483233695}
+--- !u!114 &1957768572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957768568}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NotificationBehavior: 0
+  m_MaxPlayerCount: 4
+  m_AllowJoining: 1
+  m_JoinBehavior: 0
+  m_PlayerJoinedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInputManager+PlayerJoinedEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_PlayerLeftEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInputManager+PlayerLeftEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_JoinAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: 
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+    m_Reference: {fileID: 0}
+  m_PlayerPrefab: {fileID: 0}
+  m_SplitScreen: 1
+  m_MaintainAspectRatioInSplitScreen: 0
+  m_FixedNumberOfSplitScreens: 4
+  m_SplitScreenRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &1987950867
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,14 +972,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orderOptions:
-  - button: 
-    order: {fileID: 0}
-  - button: 
-    order: {fileID: 0}
-  - button: 
-    order: {fileID: 0}
-  - button: 
-    order: {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   radius: 0
   unitLayer:
     serializedVersion: 2
