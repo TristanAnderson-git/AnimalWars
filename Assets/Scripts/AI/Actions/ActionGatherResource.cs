@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using GOAP;
 
-public class ActionGatherFood : Action
+public class ActionGatherResource : Action
 {
     bool isFinished;
 
@@ -12,7 +12,7 @@ public class ActionGatherFood : Action
         isFinished = false;
     }
 
-    public ActionGatherFood()
+    public ActionGatherResource()
     {
         AddPrecondition(ActionKey.HarvestResource, true);
         AddEffect(ActionKey.HarvestResource, false);

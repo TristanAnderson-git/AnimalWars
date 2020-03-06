@@ -87,6 +87,13 @@ MonoBehaviour:
   health: 100
   owner: 0
   secondayGoalKey: 6
+  stats:
+    speed: 0
+    attack: 0
+    harvestPerSecond: 10
+  storage:
+    maxHarvest: 50
+    amountHarvested: 0
 --- !u!114 &3179933255274001212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,11 +103,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3179933255274001211}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abea781276f4d684a81666fa5f2065d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 35e9b5ac21908c841a2ce170fcbb5e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  minExecDist: 5
+  minExecDist: 4
   cost: 1
   inRange: 0
 --- !u!114 &3179933255274001345
@@ -112,15 +119,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3179933255274001211}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09e76bd745602b04f987d2fe2d1828cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e9ec38fa7727a14c86af60eb044143a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  minExecDist: 2.5
+  minExecDist: 2.3
   cost: 1
   inRange: 0
-  maxHarvest: 250
-  foodHarvested: 0
 --- !u!114 &1173967369
 MonoBehaviour:
   m_ObjectHideFlags: 0

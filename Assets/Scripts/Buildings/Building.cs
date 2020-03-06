@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class Building : Entity
 {
-    public float refreshTime = 0.0f;
+    public float refreshPerformTime = 0.0f;
     public float buildTime = 1.0f;
     public bool placed = false;
 
@@ -41,7 +41,7 @@ public abstract class Building : Entity
             yield return null;
 
             time += Time.deltaTime;
-            progress = time / refreshTime;
+            progress = time / refreshPerformTime;
         }
     }
 
@@ -67,7 +67,7 @@ public abstract class Building : Entity
             yield return null;
 
             time += Time.deltaTime;
-            progress = time / refreshTime;
+            progress = time / refreshPerformTime;
         }
     }
 

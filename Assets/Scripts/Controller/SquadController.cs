@@ -27,8 +27,8 @@ public class SquadController : MonoBehaviour
                 GameObject go = Instantiate(unitPrefab, randomPos, Quaternion.identity);
 
                 //Set Action Targets
-                go.GetComponent<ActionGatherFood>().target = unitBase;
-                go.GetComponent<ActionHarvestFood>().target = farmland;
+                go.GetComponent<ActionGatherResource>().target = unitBase;
+                go.GetComponent<ActionHarvestResource>().target = farmland;
                 go.GetComponent<ActionAttackTarget>().target = enemy;
 
                 yield return null;

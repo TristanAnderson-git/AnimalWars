@@ -1,26 +1,13 @@
 // Collection of Global Enums used in game...
 // Placed in one file for ease of editing in the future.
 
-namespace BuildingAspect
+public enum ResourceType
 {
-    // List of Building Types
-    public enum BuildingType
-    {
-        Production,
-        Defence,
-        Trap,
-        Base
-    };
-
-    // List of Production Types
-    public enum ProductionType
-    {
-        None,
-        Food,
-        Material,
-        Unit
-    };
-}
+    Food,
+    Water,
+    Wood,
+    Stone
+};
 
 // For building Action keys dynamically with the CreateAction tool
 // Leave this enum at the bottom of the code - add any new enums above

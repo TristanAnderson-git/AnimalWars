@@ -4,10 +4,18 @@ using UnityEngine.AI;
 using System.Collections.Generic;
 
 [System.Serializable]
-public struct Stats
+public struct UnitStats
 {
     public float speed;
     public float attack;
+    public int harvestPerSecond;
+}
+
+[System.Serializable]
+public struct UnitStorage
+{
+    public int maxHarvest;
+    public int amountHarvested;
 }
 
 [RequireComponent(typeof(GOAPAgent))]
@@ -23,7 +31,8 @@ public class Unit : Entity, GOAP.Interface
 
     private HashSet<KeyValuePair<ActionKey, object>> goal;
     
-    private Stats stats;
+    public UnitStats stats;
+    public UnitStorage storage;
 
     void Start()
     {
@@ -38,7 +47,7 @@ public class Unit : Entity, GOAP.Interface
         CheckHealth();
     }
 
-    public void Spawn(int health, Stats stats)
+    public void Spawn(int health, UnitStats stats)
     {
         this.health = health;
         this.stats = stats;

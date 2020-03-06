@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour
 
     public int numberOfPlayers;
 
+    public int remainingPlayers;
+
     void Start()
     {
         // create singleton
@@ -27,9 +29,20 @@ public class GameController : MonoBehaviour
         StartMatch();
     }
 
+    void Update()
+    {
+        if (remainingPlayers <= 1)
+            EndMatch();
+    }
+
     public void StartMatch()
     {
         StartCoroutine(SetupPlayers());
+    }
+
+    public void EndMatch()
+    {
+
     }
 
     private IEnumerator SetupPlayers()

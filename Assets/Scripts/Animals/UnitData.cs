@@ -11,5 +11,6 @@ public class UnitData : ScriptableObject
 
     [Space]
     public int health;
-    public Stats stats;
+    public UnitStats stats;
+    public UnitStorage storage;
 }
