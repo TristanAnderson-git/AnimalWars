@@ -5,6 +5,8 @@ namespace GOAP
 {
     public abstract class Action : MonoBehaviour
     {
+        public bool nullTargetOnReset = false;
+
         public HashSet<KeyValuePair<ActionKey, object>> Precondition { get; }
         public HashSet<KeyValuePair<ActionKey, object>> Effects { get; }
 
@@ -49,7 +51,9 @@ namespace GOAP
         public virtual void Reset()
         {
             inRange = false;
-            //target = null;
+            
+            if (nullTargetOnReset)
+                target = null;
         }
 
         public abstract bool RequiresInRange();

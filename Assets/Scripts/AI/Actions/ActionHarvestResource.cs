@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class ActionHarvestResource : Action
 {
+    public LayerMask resourceSink;
+
     private Unit unit = null;
+    private ResourceSink sink = null;
 
     public override void Reset()
     {
         base.Reset();
-
-        if (unit != null)
-        {
-            unit.storage.amountHarvested = 0;
-        }
     }
 
     ActionHarvestResource()
@@ -23,18 +21,22 @@ public class ActionHarvestResource : Action
 
     public override bool CheckPreconditions(GameObject agent)
     {
-        unit = GetComponent<Unit>();
+        if (target == null)
+        {
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 25.0f, resourceSink);
+            target = Nearest(colliders);
+        }
 
-        return target != null;
+        unit = GetComponent<Unit>();
+        if (target != null)
+            sink = target.GetComponent<ResourceSink>();
+        
+        return target != null && unit != null && sink != null;
     }
 
     public override bool IsDone()
     {
-        if (unit.storage.amountHarvested >= unit.storage.maxHarvest)
-        {
-            return true;
-        }
-        return false;
+        return unit.storage.amountHarvested >= unit.storage.maxHarvest;
     }
 
     public override bool Perform(GameObject agent)
@@ -53,7 +55,10 @@ public class ActionHarvestResource : Action
     private IEnumerator CollectResource()
     {
         yield return new WaitForSeconds(1.0f);
-        unit.storage.amountHarvested = Mathf.Clamp(unit.storage.amountHarvested + unit.stats.harvestPerSecond, 0, unit.storage.maxHarvest);
+
+        int harvestAmount = sink.WithdrawResource(unit);
+        unit.storage.amountHarvested = Mathf.Clamp(unit.storage.amountHarvested + harvestAmount, 0, unit.storage.maxHarvest);
+        
         collectResource = null;
     }
 
@@ -61,4 +66,30 @@ public class ActionHarvestResource : Action
     {
         return true;
     }
+
+    GameObject Nearest(Collider[] points)
+    {
+        int nearest = -1;
+        float nearestDistance = Mathf.Infinity;
+
+        for (int i = 0; i < points.Length; i++)
+        {
+            float distance = Mathf.Abs(Vector3.Distance(transform.position, points[i].transform.position));
+            if (distance < nearestDistance)
+            {
+                nearestDistance = distance;
+                nearest = i;
+            }
+        }
+        
+        return (nearest >= 0) ? points[nearest].gameObject : null;
+    }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, 25.0f);
+    }
+#endif
 }

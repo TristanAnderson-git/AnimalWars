@@ -3,7 +3,7 @@
 public abstract class Entity : MonoBehaviour
 {
     public int health;
-    public int owner;
+    public int owner = -1;
 
     protected void CheckHealth()
     {

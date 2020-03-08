@@ -8,7 +8,7 @@ public struct Resource
     public int amount;
 }
 
-public class ResourceCollection : Building
+public class ResourceSink : Building
 {
     public ResourceType type;
 
@@ -18,13 +18,9 @@ public class ResourceCollection : Building
     public int maximumStorage;
     public int currentStorage;
 
-    public Unit workers;
-
-    private bool preExists = true;
-
     public override void Die()
     {
-        if (preExists)
+        if (existsInEnvirenment)
         {
             owner = -1;
         }
@@ -37,5 +33,12 @@ public class ResourceCollection : Building
     public override void Perform()
     {
         currentStorage = Mathf.Clamp(currentStorage + productionAmount, 0, maximumStorage);
+    }
+
+    public int WithdrawResource(Unit unit)
+    {
+        int harvestAmount = Mathf.Min(unit.stats.harvestPerSecond, currentStorage);
+        currentStorage -= harvestAmount;
+        return harvestAmount;
     }
 }

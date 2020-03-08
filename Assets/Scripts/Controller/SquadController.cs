@@ -28,7 +28,7 @@ public class SquadController : MonoBehaviour
 
                 //Set Action Targets
                 go.GetComponent<ActionGatherResource>().target = unitBase;
-                go.GetComponent<ActionHarvestResource>().target = farmland;
+                //go.GetComponent<ActionHarvestResource>().target = farmland;
                 go.GetComponent<ActionAttackTarget>().target = enemy;
 
                 yield return null;

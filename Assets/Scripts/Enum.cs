@@ -24,5 +24,6 @@ namespace GOAP
         HarvestResource,
         GatherResource,
 		AttackTarget,
+		FollowPlayer,
     };
 }

@@ -14,19 +14,12 @@ public class OrderController : MonoBehaviour
     private void Awake()
     {
         activeOrders = new bool[4];
-
-        controls = new PlayerControls();
-
-        controls.Orders.Order_0.performed += ctx => activeOrders[0] = true;
-        controls.Orders.Order_1.performed += ctx => activeOrders[1] = true;
-        controls.Orders.Order_2.performed += ctx => activeOrders[2] = true;
-        controls.Orders.Order_3.performed += ctx => activeOrders[3] = true;
-
-        controls.Orders.Order_0.canceled += ctx => activeOrders[0] = false;
-        controls.Orders.Order_1.canceled += ctx => activeOrders[1] = false;
-        controls.Orders.Order_2.canceled += ctx => activeOrders[2] = false;
-        controls.Orders.Order_3.canceled += ctx => activeOrders[3] = false;
     }
+
+    void OnOrder_0(InputValue value) => activeOrders[0] = value.isPressed;
+    void OnOrder_1(InputValue value) => activeOrders[1] = value.isPressed;
+    void OnOrder_2(InputValue value) => activeOrders[2] = value.isPressed;
+    void OnOrder_3(InputValue value) => activeOrders[3] = value.isPressed;
 
     private void OnEnable()
     {
@@ -62,9 +55,26 @@ public class OrderController : MonoBehaviour
 
             if (unit != null)
             {
-                if (unit.CurrentOrderPriority <= order.priority)
+                if (unit.CurrentOrderPriority <= order.priority || order.priority == 0)
                     unit.GiveOrder(order);
             }
         }
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        if (activeOrders == null)
+            return;
+
+        for (int i = 0; i < activeOrders.Length; i++)
+        {
+            if (activeOrders[i])
+            {
+                Gizmos.color = Color.green;
+                Gizmos.DrawWireSphere(transform.position, radius);
+            }
+        }
+    }
+#endif
 }

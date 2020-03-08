@@ -9,10 +9,10 @@ public class ActionAttackTarget : Action
 
     public override void Reset()
 	{
+        base.Reset();
+
         attacked = false;
-        entity = null;
-        recover = null;
-	}
+    }
 
 	public ActionAttackTarget()
 	{
@@ -22,16 +22,15 @@ public class ActionAttackTarget : Action
 
 	public override bool CheckPreconditions(GameObject agent)
 	{
-        if (target == null)
-            return false;
+        if (target != null || entity == null)
+            entity = target.GetComponent<Entity>();
 
-        entity = target.GetComponent<Entity>();
-        return true;
+        return target != null || entity != null;
     }
 
 	public override bool IsDone()
 	{
-        return attacked;
+        return entity.health <= 0;
 	}
 
 	public override bool Perform(GameObject agent)
@@ -50,6 +49,7 @@ public class ActionAttackTarget : Action
         yield return new WaitForSeconds(waitTime);
         attacked = true;
         print("ATTACK!");
+        recover = null;
     }
 
     public override bool RequiresInRange()

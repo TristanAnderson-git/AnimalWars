@@ -1,18 +1,19 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ConstructionController : MonoBehaviour
 {
-    public PlayerControls controls;
+    private InputActionAsset inputAsset;
 
     public BuildingData[] buildings;
     private BuildingData selected;
-    private int currentIndex;
+    public int currentIndex;
 
     public float buildDistance;
 
     private GameObject preview;
     private Vector2 rightStickInput = Vector2.up;
-    private bool showPreview = false;
+    public bool showPreview = false;
 
     private Vector3 pos;
     private Quaternion rot;
@@ -22,17 +23,34 @@ public class ConstructionController : MonoBehaviour
         currentIndex = 0;
         selected = buildings[currentIndex];
 
-        controls = new PlayerControls();
-
-        controls.Construction.Build.performed += ctx => showPreview = true;
-        controls.Construction.Build.canceled += ctx => Construct();
-        controls.Construction.CancelBuild.performed += ctx => Cancel();
-
-        controls.Construction.RightStick.performed += ctx => rightStickInput = ctx.ReadValue<Vector2>();
-
-        controls.Construction.SwapNext.performed += ctx => Swap(1);
-        controls.Construction.SwapPrevious.performed += ctx => Swap(-1);
+        inputAsset = GetComponent<PlayerInput>().actions;
+        inputAsset.Enable();
     }
+
+    void OnBuild()
+    {
+        Construct();
+    }
+    void OnPreview(InputValue value)
+    {
+        showPreview = value.isPressed;
+
+        if (!showPreview)
+            Cancel();
+    }
+
+    void OnRightStick(InputValue value)
+    {
+        Vector2 input = value.Get<Vector2>();
+
+        if (input != Vector2.zero)
+        rightStickInput = input;
+    }
+
+    void OnSwapNext() => Swap(1);
+    void OnSwapPrevious() => Swap(-1);
+
+
 
     private void Update()
     {
@@ -40,21 +58,10 @@ public class ConstructionController : MonoBehaviour
             Preview();
     }
 
-    private void OnEnable()
-    {
-        if (controls != null)
-            controls.Construction.Enable();
-    }
-
-    private void OnDisable()
-    {
-        if (controls != null)
-            controls.Construction.Disable();
-    }
-
     void Swap(int direction)
     {
-        selected = buildings[(currentIndex + direction) % buildings.Length];
+        currentIndex = (currentIndex + direction) % buildings.Length;
+        selected = buildings[currentIndex];
     }
 
     private void Preview()
@@ -67,12 +74,8 @@ public class ConstructionController : MonoBehaviour
 
     private void Construct()
     {
-        if (preview == null)
-            return;
-
-        Instantiate(selected.prefab, pos, rot);
-
-        EndPreview();
+        if (preview != null)
+            Instantiate(selected.prefab, pos, rot);
     }
 
     private void Cancel()
@@ -82,7 +85,7 @@ public class ConstructionController : MonoBehaviour
 
     private void StartPreview()
     {
-        if (preview == null)
+        if (preview == null && selected != null)
             preview = Instantiate(selected.prefab, Vector3.zero, Quaternion.identity);
     }
 
@@ -96,4 +99,15 @@ public class ConstructionController : MonoBehaviour
 
         showPreview = false;
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        if (showPreview)
+        {
+            Gizmos.color = Color.white;
+            Gizmos.DrawCube(pos, Vector3.one);
+        }
+    }
+#endif
 }

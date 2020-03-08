@@ -1,18 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
+    public static List<GameObject> players;
 
     public GameObject playerPrefab;
     public GameObject cameraPrefab;
-    public GameObject gameUIPrefab;
-
+    
     public int numberOfPlayers;
-
-    public int remainingPlayers;
 
     void Start()
     {
@@ -31,13 +30,13 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (remainingPlayers <= 1)
+        if (players.Count <= 1)
             EndMatch();
     }
 
     public void StartMatch()
     {
-        StartCoroutine(SetupPlayers());
+        SetupPlayers();
     }
 
     public void EndMatch()
@@ -45,31 +44,23 @@ public class GameController : MonoBehaviour
 
     }
 
-    private IEnumerator SetupPlayers()
+    private void SetupPlayers()
     {
-        bool finished = false;
+        players = new List<GameObject>();
+        
+        PlayerInputManager playerInputManager = GetComponent<PlayerInputManager>();
+        playerInputManager.onPlayerJoined += OnPlayerJoined;
+    }
 
-        while(!finished)
-        {
-            for (int i = 0; i < numberOfPlayers; i++)
-            {
-                GameObject player = Instantiate(playerPrefab);
-                InspectorName(player, "Player" + (i + 1));
+    private void OnPlayerJoined(PlayerInput obj)
+    {
+        GameObject player = obj.gameObject;
+        players.Add(player);
+        InspectorName(player, "Player" + GameController.players.Count);
 
-                GameObject camera = Instantiate(cameraPrefab);
-                camera.GetComponent<CameraController>().SetUp(i, numberOfPlayers, player.transform);
-                InspectorName(camera, "Player" + (i + 1) + "_Camera");
-
-                GameObject ui = Instantiate(gameUIPrefab);
-                ui.GetComponent<Canvas>().worldCamera = camera.GetComponent<Camera>();
-                ui.GetComponent<Canvas>().planeDistance = 0;
-                InspectorName(ui, "Player" + (i + 1) + "_Canvas");
-
-                yield return new WaitForEndOfFrame();
-            }
-
-            finished = true;
-        }
+        GameObject camera = Instantiate(cameraPrefab);
+        camera.GetComponent<CameraController>().SetUp(GameController.players.Count - 1, numberOfPlayers, player.transform);
+        InspectorName(camera, "Player" + GameController.players.Count + " Camera");
     }
 
     private void InspectorName(GameObject gameObject, string name)

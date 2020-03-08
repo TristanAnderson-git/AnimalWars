@@ -6,7 +6,7 @@ public class Base : Building
 {
     public override void Die()
     {
-        GameController.instance.remainingPlayers -= 1;
+        GameController.players.RemoveAt(owner);
     }
 
     public override void Perform()

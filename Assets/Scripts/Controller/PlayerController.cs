@@ -1,35 +1,25 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class PlayerController : MonoBehaviour
 {
-    private NavMeshAgent navAgent;
+    private Vector2 moveDir;
     public LayerMask ground;
 
-    private void Start()
-    {
-        navAgent = GetComponent<NavMeshAgent>();
-    }
+    
+    void OnMove(InputValue value) => moveDir = value.Get<Vector2>();
 
     private void Update()
     {
-        Vector2 moveDir = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        
         if (moveDir != Vector2.zero)
             Move(moveDir);
     }
 
     private void Move(Vector2 direction)
     {
-        Vector3 origin = new Vector3(transform.position.x + direction.x, 25f, transform.position.z + direction.y);
-        Ray ray = new Ray(origin, Vector3.down);
-
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 50f, ground))
-        {
-            navAgent.SetDestination(hit.point);
-        }
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(direction.x, 0, direction.y) + transform.position, Time.deltaTime * 7.5f);
     }
 }

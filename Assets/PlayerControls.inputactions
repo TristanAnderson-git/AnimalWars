@@ -7,33 +7,33 @@
             "actions": [
                 {
                     "name": "Order_0",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "f195bf6f-ef7d-40be-9725-9d7f101ee976",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 },
                 {
                     "name": "Order_1",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "17dc7633-0961-4444-8bef-e23524aa5a2b",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 },
                 {
                     "name": "Order_2",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "55f8e27d-c0ea-4c85-b2e9-c25dea659481",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 },
                 {
                     "name": "Order_3",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "04a639c6-d142-416e-8e3a-094917b9eb47",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -98,7 +98,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "CancelBuild",
+                    "name": "Build",
                     "type": "Button",
                     "id": "e99245d6-67ea-4f7a-b7e2-91493a72c335",
                     "expectedControlType": "",
@@ -106,10 +106,10 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Build",
-                    "type": "Button",
+                    "name": "Preview",
+                    "type": "Value",
                     "id": "34a99d64-3010-4ca6-b638-4f3212c0d82d",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Integer",
                     "processors": "",
                     "interactions": ""
                 },
@@ -138,7 +138,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Build",
+                    "action": "Preview",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -149,7 +149,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "CancelBuild",
+                    "action": "Build",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -183,6 +183,60 @@
                     "processors": "",
                     "groups": "",
                     "action": "SwapPrevious",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Movement",
+            "id": "fac4a6db-7c7e-4f4c-83be-2fde83173f8c",
+            "actions": [
+                {
+                    "name": "Move",
+                    "type": "Value",
+                    "id": "a581877a-340b-4d31-afe1-9fbe1291c964",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8684cb8e-543f-4485-bd15-b8f51b326a24",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Menu",
+            "id": "211bab3f-c465-4857-aa4b-331a239ecfbd",
+            "actions": [
+                {
+                    "name": "Join",
+                    "type": "Button",
+                    "id": "fefa1d78-33ea-475b-ad6f-51b81a7604eb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "28ded15c-d804-4a12-bb1e-a80420a2d911",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Join",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

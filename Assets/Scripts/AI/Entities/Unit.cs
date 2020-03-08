@@ -14,6 +14,7 @@ public struct UnitStats
 [System.Serializable]
 public struct UnitStorage
 {
+    public ResourceType type;
     public int maxHarvest;
     public int amountHarvested;
 }
@@ -96,7 +97,6 @@ public class Unit : Entity, GOAP.Interface
 
     public void PlanFailed(HashSet<KeyValuePair<ActionKey, object>> failedGoal)
     {
-        ResetActiveGoal();
     }
 
     public void PlanFound(HashSet<KeyValuePair<ActionKey, object>> goal, Queue<Action> actions)
@@ -105,7 +105,6 @@ public class Unit : Entity, GOAP.Interface
 
     public void ActionsFinished()
     {
-        ResetActiveGoal();
     }
 
     public void ResetActiveGoal()

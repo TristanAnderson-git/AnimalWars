@@ -316,7 +316,6 @@ GameObject:
   - component: {fileID: 247577510}
   - component: {fileID: 247577513}
   - component: {fileID: 247577512}
-  - component: {fileID: 247577511}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -338,19 +337,6 @@ Transform:
   m_Father: {fileID: 1033724591}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &247577511
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 247577509}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &247577512
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -589,7 +575,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1033724591}
-  m_Layer: 0
+  - component: {fileID: 1033724593}
+  - component: {fileID: 1033724592}
+  m_Layer: 10
   m_Name: Farmland
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -611,6 +599,42 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1033724592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033724590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8834b607b2eb8b648b0e166930798d20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  owner: 0
+  refreshPerformTime: 5
+  buildTime: 1
+  existsInEnvirenment: 1
+  progress: 0
+  type: 0
+  maximumWorkers: 1
+  productionAmount: 20
+  maximumStorage: 100
+  currentStorage: 0
+--- !u!65 &1033724593
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033724590}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &1483233695
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,12 +679,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1483233695}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf0d82407dfed88448eceaabe8d18466, type: 3}
+  m_Script: {fileID: 11500000, guid: cee72e3f5b639a543b2f6cd07a21aa22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  owner: 1
+  owner: 0
   secondayGoalKey: 1
+  stats:
+    speed: 0
+    attack: 0
+    harvestPerSecond: 0
+  storage:
+    type: 0
+    maxHarvest: 0
+    amountHarvested: 0
 --- !u!195 &1483233698
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -708,6 +740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186593d61f649354d891813dc5b1e13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nullTargetOnReset: 1
   target: {fileID: 0}
   minExecDist: 0
   cost: 1
@@ -721,6 +754,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1830528049}
+  - component: {fileID: 1830528050}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -743,6 +777,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1830528050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1830528048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8536a35474ae414bb39aa1709a59585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  owner: -1
+  refreshPerformTime: 0
+  buildTime: 1
+  existsInEnvirenment: 1
+  progress: 0
+  resources: 00000000000000000000000000000000
 --- !u!1 &1856852023
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,13 +858,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cae34de8760934fabaff20021f165b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 5029008915812844078, guid: 907c385b005b63242923a2860a935cb8,
+  playerPrefab: {fileID: 4593690233572715782, guid: 907c385b005b63242923a2860a935cb8,
     type: 3}
-  cameraPrefab: {fileID: 8877901433441075717, guid: 63a24d8c0688de047b2bc8442d9c98cc,
+  cameraPrefab: {fileID: 327706637643183058, guid: 63a24d8c0688de047b2bc8442d9c98cc,
     type: 3}
-  gameUIPrefab: {fileID: 8071351041636703860, guid: 6dd6968b231af7a499b5b3b50bd1e852,
-    type: 3}
-  numberOfPlayers: 1
+  numberOfPlayers: 2
 --- !u!4 &1957768570
 Transform:
   m_ObjectHideFlags: 0
@@ -852,40 +903,37 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1957768568}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_NotificationBehavior: 0
-  m_MaxPlayerCount: 4
+  m_MaxPlayerCount: 2
   m_AllowJoining: 1
   m_JoinBehavior: 0
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInputManager+PlayerJoinedEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_PlayerLeftEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInputManager+PlayerLeftEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_JoinAction:
     m_UseReference: 0
     m_Action:
-      m_Name: 
+      m_Name: Join
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 
+      m_Id: 86746e0d-d779-44f9-bd27-7b58e3f55377
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
     m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 0}
-  m_SplitScreen: 1
+  m_PlayerPrefab: {fileID: 4593690233572715782, guid: 907c385b005b63242923a2860a935cb8,
+    type: 3}
+  m_SplitScreen: 0
   m_MaintainAspectRatioInSplitScreen: 0
-  m_FixedNumberOfSplitScreens: 4
+  m_FixedNumberOfSplitScreens: -1
   m_SplitScreenRect:
     serializedVersion: 2
     x: 0

@@ -5,12 +5,18 @@ public abstract class Building : Entity
 {
     public float refreshPerformTime = 0.0f;
     public float buildTime = 1.0f;
-    public bool placed = false;
+    public bool existsInEnvirenment = false;
 
     [HideInInspector]
     public float progress = 0.0f;
 
     protected Coroutine currentState = null;
+
+    public void Start()
+    {
+        if (existsInEnvirenment)
+            StartTask();
+    }
 
     public void Spawn()
     {

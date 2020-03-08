@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using GOAP;
+using System.Collections;
 
 public class ActionGatherResource : Action
 {
-    bool isFinished;
+    Unit unit;
+    Storage storage;
 
     public override void Reset()
     {
         base.Reset();
-
-        isFinished = false;
     }
 
     public ActionGatherResource()
@@ -21,19 +21,40 @@ public class ActionGatherResource : Action
 
     public override bool CheckPreconditions(GameObject agent)
     {
-        return target != null;
+        unit = GetComponent<Unit>();
+        if (target != null)
+            storage = target.GetComponent<Storage>();
+
+        return target != null && unit != null && storage != null;
     }
 
     public override bool IsDone()
     {
-        return isFinished;
+        return unit.storage.amountHarvested == 0;
     }
 
     public override bool Perform(GameObject agent)
     {
-        isFinished = true;
-        return true;
+        if (unit.storage.amountHarvested > 0)
+        {
+            if (depositResource == null)
+                depositResource = StartCoroutine(DepositResource());
+            return true;
+        }
+
+        return false;
     }
+
+    private Coroutine depositResource = null;
+    private IEnumerator DepositResource()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        storage.DepositRecource(unit);
+
+        depositResource = null;
+    }
+
 
     public override bool RequiresInRange()
     {
