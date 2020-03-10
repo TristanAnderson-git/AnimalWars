@@ -6,7 +6,7 @@ public class Storage : Building
 {
     public int[] resources = new int[4];
 
-    protected override void Init()
+    public override void Init()
     {
     }
 
@@ -26,5 +26,22 @@ public class Storage : Building
 
         unit.storage.amountHarvested -= amount;
         resources[(int)unit.storage.type] += amount;
+    }
+
+    public void DepositRecource(ResourceSink sink)
+    {
+        int amount = Mathf.Min(sink.productionAmount, sink.maximumStorage);
+
+        unit.storage.amountHarvested -= amount;
+
+        if (unit.storage.type == ResourceType.All)
+        {
+            for (int i = 0; i < 4; i++)
+                resources[i] += amount;
+        }
+        else
+        {
+            resources[(int)unit.storage.type] += amount;
+        }
     }
 }

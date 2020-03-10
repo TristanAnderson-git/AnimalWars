@@ -48,10 +48,11 @@ public class Unit : Entity, GOAP.Interface
         CheckHealth();
     }
 
-    public void Spawn(int health, UnitStats stats)
+    public void Spawn(int health, UnitStats stats, int owner)
     {
         this.health = health;
         this.stats = stats;
+        this.owner = owner;
     }
 
     // GOAP AGENT FUNCTIONALITY

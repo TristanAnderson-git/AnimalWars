@@ -4,18 +4,37 @@ using UnityEngine;
 
 public class Base : Building
 {
-    protected override void Init()
-    {
+    private Hut hut;
+    private Storage storage;
+    private ResourceSink sink;
 
+    public override void Init()
+    {
+        hut = GetComponent<Hut>();
+        storage = GetComponent<Storage>();
+        sink = GetComponent<ResourceSink>();
+
+        hut.Init();
+
+        // Spawn in starting units
+        for (int i = 0; i < 5; i++)
+            hut.Perform();
     }
 
     public override void Die()
     {
-        GameController.players.RemoveAt(owner);
+        if (GameController.players[owner] != null)
+        {
+            GameController.players[owner].RemoveBuilding(this);
+            GameController.players[owner] = null;
+        }
+
+        Destroy(gameObject);
     }
 
     public override void Perform()
     {
-
+        if (owner < 5)
+            hut.Perform();
     }
 }

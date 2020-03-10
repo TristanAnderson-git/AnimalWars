@@ -6,13 +6,13 @@ public abstract class Building : Entity
     public float refreshPerformTime = 0.0f;
     public float buildTime = 1.0f;
     public bool existsInEnvirenment = false;
-
+    
     [HideInInspector]
     public float progress = 0.0f;
 
     protected Coroutine currentState = null;
 
-    protected abstract void Init();
+    public abstract void Init();
 
     public void Start()
     {

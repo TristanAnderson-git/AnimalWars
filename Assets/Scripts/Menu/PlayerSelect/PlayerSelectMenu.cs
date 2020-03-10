@@ -15,7 +15,7 @@ public class PlayerSelectMenu : MonoBehaviour
 
     void Start()
     {
-        GameController.players = new List<GameObject>();
+        GameController.players = new List<PlayerController>();
         
         SetUpPlayerSelect();
     }

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
-    public static List<GameObject> players;
+    public static List<PlayerController> players;
 
     public GameObject playerPrefab;
     public GameObject cameraPrefab;
@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour
     public void StartMatch()
     {
         SceneManager.LoadScene(1);
-        SceneManager.sceneLoaded += SetupPlayers;
+        SceneManager.sceneLoaded += SetUp;
     }
 
     public static void EndMatch()
@@ -53,7 +53,16 @@ public class GameController : MonoBehaviour
 
     }
 
-    private void SetupPlayers(Scene scene, LoadSceneMode mode)
+    private void SetUp(Scene scene, LoadSceneMode mode)
+    {
+        SetupPlayers();
+        SetUpBuilding();
+
+        // Clean up delegate
+        SceneManager.sceneLoaded -= SetUp;
+    }
+
+    private void SetupPlayers()
     {
         for (int i = 0; i < players.Count; i++)
         {
@@ -61,21 +70,26 @@ public class GameController : MonoBehaviour
             camera.GetComponent<CameraController>().SetUp(i, players.Count, players[i].transform);
             InspectorName(camera, "Player" + players.Count + " Camera");
         }
+    }
 
-        SceneManager.sceneLoaded -= SetupPlayers;
+    private void SetUpBuilding()
+    {
+        
     }
 
     public void OnPlayerJoined(PlayerInput obj)
     {
-        GameObject player = obj.gameObject;
-        player.GetComponent<PlayerController>().selectOption = playerSelectMenu.players[players.Count];
+        PlayerController player = obj.GetComponent<PlayerController>();
+
+        player.selectOption = playerSelectMenu.players[players.Count];
+        player.playerID = (uint)players.Count;
+
         DontDestroyOnLoad(player);
 
         playerSelectMenu.players[players.Count].PlayerJoin();
 
         players.Add(player);
-        InspectorName(player, "Player" + players.Count);
-
+        InspectorName(player.gameObject, "Player" + players.Count);
     }
 
     public static void InspectorName(GameObject gameObject, string name)

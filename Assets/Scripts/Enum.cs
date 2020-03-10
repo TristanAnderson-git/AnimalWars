@@ -6,7 +6,8 @@ public enum ResourceType
     Food,
     Water,
     Wood,
-    Stone
+    Stone,
+    All
 };
 
 // For building Action keys dynamically with the CreateAction tool

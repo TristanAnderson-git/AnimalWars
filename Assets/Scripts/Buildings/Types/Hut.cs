@@ -8,7 +8,7 @@ public class Hut : Building
 
     private Vector3 spawnPoint = Vector3.zero;
 
-    protected override void Init()
+    public override void Init()
     {
         spawnPoint = spawnDistance * transform.forward;
     }
@@ -16,7 +16,7 @@ public class Hut : Building
     public override void Perform()
     {
         Unit unit = Instantiate(unitPrefab, spawnPoint, transform.rotation).GetComponent<Unit>();
-        unit.Spawn(unitData.health, unitData.stats);
+        unit.Spawn(unitData.health, unitData.stats, owner);
     }
 
     public override void Die()
