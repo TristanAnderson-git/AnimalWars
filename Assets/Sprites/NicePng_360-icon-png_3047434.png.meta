@@ -1,0 +1,631 @@
+fileFormatVersion: 2
+guid: a0ace4171ba89b148bd48a63165a780d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7250154325544322914
+    second: LeftStick
+  - first:
+      213: -6358408743988366755
+    second: LeftStick_Press
+  - first:
+      213: -4766256860858826859
+    second: RightStick
+  - first:
+      213: 8059955300776970932
+    second: RightStick_Press
+  - first:
+      213: -9020566128425973767
+    second: X-Button
+  - first:
+      213: -2941930230035635480
+    second: Y-Button
+  - first:
+      213: 5327774117989741561
+    second: D-Pad
+  - first:
+      213: 4412524253686437925
+    second: D-Pad_Up
+  - first:
+      213: 6259536640309264670
+    second: D-Pad_Down
+  - first:
+      213: -8567143110637170155
+    second: D-Pad_Left
+  - first:
+      213: 301496469773157081
+    second: D-Pad_Right
+  - first:
+      213: 8614799793082207268
+    second: A-Button
+  - first:
+      213: 8784660012991390822
+    second: B-Button
+  - first:
+      213: 3325714294843212225
+    second: NicePng_360-icon-png_3047434_13
+  - first:
+      213: 5885622312666393146
+    second: NicePng_360-icon-png_3047434_14
+  - first:
+      213: -2304960019052005694
+    second: RightTrigger
+  - first:
+      213: -2271217034595627631
+    second: LeftTrigger
+  - first:
+      213: 3239920758303986885
+    second: LeftShoulder
+  - first:
+      213: -1147202420157473628
+    second: Select-Button
+  - first:
+      213: -3097286553780579946
+    second: Start-Button
+  - first:
+      213: 7491136448693018310
+    second: RightShoulder
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: LeftStick
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 225
+        width: 116
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9a2a26cd6216be42a85ede0b59f2a2c
+      internalID: 7250154325544322914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftStick_Press
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 232
+        width: 117
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c44bc9e1df590946bb171c646b1df9f
+      internalID: -6358408743988366755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightStick
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 222
+        width: 117
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ca25c8e0232c4c4e9559b5350e987c3
+      internalID: -4766256860858826859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightStick_Press
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 230
+        width: 117
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96610309c7f736f45b5efb6ab19ae450
+      internalID: 8059955300776970932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: X-Button
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 247
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 673645907742d2a4cbd700fbeff67df2
+      internalID: -9020566128425973767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Y-Button
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 245
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06bcfb772c36706479b8d125cfe733c4
+      internalID: -2941930230035635480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-Pad
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 120
+        width: 84
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c5b1b5dac02a36439a17198c8d0299f
+      internalID: 5327774117989741561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-Pad_Up
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 119
+        width: 84
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d746bd37f577cf4595c1c81c9c38fbc
+      internalID: 4412524253686437925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-Pad_Down
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 120
+        width: 83
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 186677d056993d543bb1300d4d977c30
+      internalID: 6259536640309264670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-Pad_Left
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 118
+        width: 84
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b0a00a9eb01bb041bc765da3bca68a6
+      internalID: -8567143110637170155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: D-Pad_Right
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 118
+        width: 83
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f757785bdde0cf84cbe91c8ceaa949a6
+      internalID: 301496469773157081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: A-Button
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 135
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 849399ef01d2dca43a3c7167c8f0a813
+      internalID: 8614799793082207268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: B-Button
+      rect:
+        serializedVersion: 2
+        x: 677
+        y: 133
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0471f70437d2b6439a9c81b0542709d
+      internalID: 8784660012991390822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NicePng_360-icon-png_3047434_13
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 25
+        width: 78
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91e8ae4e16b88df4da7c1b78ded249e1
+      internalID: 3325714294843212225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NicePng_360-icon-png_3047434_14
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 24
+        width: 78
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 177592e0c0b6f4f4d92daa1809b86628
+      internalID: 5885622312666393146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightTrigger
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 8
+        width: 60
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b1d3cdc4ee5218408c4ffc2b42b67e7
+      internalID: -2304960019052005694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftTrigger
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 9
+        width: 60
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8b40b9ccdbbf5b459980d724e41d871
+      internalID: -2271217034595627631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftShoulder
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 52
+        width: 93
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 743e5fe60a87d0b4486f98a7a411baf4
+      internalID: 3239920758303986885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Select-Button
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 52
+        width: 54
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 971cf261004922b4ab72e85ab629dc79
+      internalID: -1147202420157473628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Start-Button
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 51
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c24934d017da3445818370ec4cd8f9b
+      internalID: -3097286553780579946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightShoulder
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 0
+        width: 93
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e93865b488337e438d32ee9117229a3
+      internalID: 7491136448693018310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

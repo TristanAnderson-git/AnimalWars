@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -10,10 +11,16 @@ public class GameController : MonoBehaviour
 
     public GameObject playerPrefab;
     public GameObject cameraPrefab;
-    
-    public int numberOfPlayers;
+    public PlayerSelectMenu playerSelectMenu;
 
-    void Start()
+    public static PlayerInputManager GetPlayerInputManager()
+    {
+        return instance.playerInputManager;
+    }
+
+    private PlayerInputManager playerInputManager;
+    
+    void Awake()
     {
         // create singleton
         if (instance != null)
@@ -25,7 +32,8 @@ public class GameController : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(this);
 
-        StartMatch();
+        playerInputManager = GetComponent<PlayerInputManager>();
+        playerInputManager.onPlayerJoined += OnPlayerJoined;
     }
 
     void Update()
@@ -36,34 +44,37 @@ public class GameController : MonoBehaviour
 
     public void StartMatch()
     {
-        SetupPlayers();
+        SceneManager.LoadScene(1);
+        SceneManager.sceneLoaded += SetupPlayers;
     }
 
-    public void EndMatch()
+    public static void EndMatch()
     {
 
     }
 
-    private void SetupPlayers()
+    private void SetupPlayers(Scene scene, LoadSceneMode mode)
     {
-        players = new List<GameObject>();
-        
-        PlayerInputManager playerInputManager = GetComponent<PlayerInputManager>();
-        playerInputManager.onPlayerJoined += OnPlayerJoined;
+        for (int i = 0; i < players.Count; i++)
+        {
+            GameObject camera = Instantiate(cameraPrefab);
+            camera.GetComponent<CameraController>().SetUp(i, players.Count, players[i].transform);
+            InspectorName(camera, "Player" + players.Count + " Camera");
+        }
     }
 
-    private void OnPlayerJoined(PlayerInput obj)
+    public void OnPlayerJoined(PlayerInput obj)
     {
         GameObject player = obj.gameObject;
-        players.Add(player);
-        InspectorName(player, "Player" + GameController.players.Count);
+        DontDestroyOnLoad(player);
 
-        GameObject camera = Instantiate(cameraPrefab);
-        camera.GetComponent<CameraController>().SetUp(GameController.players.Count - 1, numberOfPlayers, player.transform);
-        InspectorName(camera, "Player" + GameController.players.Count + " Camera");
+        players.Add(player);
+        InspectorName(player, "Player" + players.Count);
+
+        playerSelectMenu.players[players.Count - 1].PlayerJoin();
     }
 
-    private void InspectorName(GameObject gameObject, string name)
+    public static void InspectorName(GameObject gameObject, string name)
     {
 #if UNITY_EDITOR
         gameObject.name = name;

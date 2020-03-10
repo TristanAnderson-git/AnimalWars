@@ -4,14 +4,11 @@ using System.Collections;
 
 public class ActionAttackTarget : Action
 {
-    bool attacked = false;
     Entity entity = null;
 
     public override void Reset()
 	{
         base.Reset();
-
-        attacked = false;
     }
 
 	public ActionAttackTarget()
@@ -35,9 +32,6 @@ public class ActionAttackTarget : Action
 
 	public override bool Perform(GameObject agent)
 	{
-        entity.health -= 0; // Some calculated damage value
-                            // Add some recovery time to prevent attacking every frame
-
         if (recover == null)
             recover = StartCoroutine(RecoverFromAttack(1.5f));
         return true;
@@ -46,9 +40,10 @@ public class ActionAttackTarget : Action
     Coroutine recover = null;
     IEnumerator RecoverFromAttack(float waitTime)
     {
-        yield return new WaitForSeconds(waitTime);
-        attacked = true;
+        entity.health -= 0; // Some calculated damage value
         print("ATTACK!");
+
+        yield return new WaitForSeconds(waitTime);
         recover = null;
     }
 

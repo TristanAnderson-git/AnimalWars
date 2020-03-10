@@ -3,7 +3,6 @@ using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(NavMeshAgent))]
 public class PlayerController : MonoBehaviour
 {
     private Vector2 moveDir;

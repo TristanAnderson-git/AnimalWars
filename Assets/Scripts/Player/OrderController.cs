@@ -3,8 +3,6 @@ using UnityEngine.InputSystem;
 
 public class OrderController : MonoBehaviour
 {
-    private PlayerControls controls;
-
     public GOAP.Order[] orderOptions = new GOAP.Order[4];
     public float radius;
     public LayerMask unitLayer;
@@ -20,18 +18,6 @@ public class OrderController : MonoBehaviour
     void OnOrder_1(InputValue value) => activeOrders[1] = value.isPressed;
     void OnOrder_2(InputValue value) => activeOrders[2] = value.isPressed;
     void OnOrder_3(InputValue value) => activeOrders[3] = value.isPressed;
-
-    private void OnEnable()
-    {
-        if (controls != null)
-            controls.Orders.Enable();
-    }
-
-    private void OnDisable()
-    {
-        if (controls != null)
-            controls.Orders.Disable();
-    }
 
     private void Update()
     {

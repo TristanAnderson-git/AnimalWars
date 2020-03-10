@@ -8,7 +8,7 @@ public class Hut : Building
 
     private Vector3 spawnPoint = Vector3.zero;
 
-    void Start()
+    protected override void Init()
     {
         spawnPoint = spawnDistance * transform.forward;
     }

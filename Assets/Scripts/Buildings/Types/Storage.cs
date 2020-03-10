@@ -6,6 +6,10 @@ public class Storage : Building
 {
     public int[] resources = new int[4];
 
+    protected override void Init()
+    {
+    }
+
     public override void Die()
     {
 

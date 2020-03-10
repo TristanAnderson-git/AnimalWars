@@ -18,6 +18,10 @@ public class ResourceSink : Building
     public int maximumStorage;
     public int currentStorage;
 
+    protected override void Init()
+    {
+    }
+
     public override void Die()
     {
         if (existsInEnvirenment)

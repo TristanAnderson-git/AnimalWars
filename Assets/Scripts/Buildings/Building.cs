@@ -12,8 +12,12 @@ public abstract class Building : Entity
 
     protected Coroutine currentState = null;
 
+    protected abstract void Init();
+
     public void Start()
     {
+        Init();
+
         if (existsInEnvirenment)
             StartTask();
     }
