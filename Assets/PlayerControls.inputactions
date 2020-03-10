@@ -216,13 +216,21 @@
             ]
         },
         {
-            "name": "Menu",
+            "name": "Join",
             "id": "211bab3f-c465-4857-aa4b-331a239ecfbd",
             "actions": [
                 {
-                    "name": "Join",
+                    "name": "Confirm",
                     "type": "Button",
-                    "id": "fefa1d78-33ea-475b-ad6f-51b81a7604eb",
+                    "id": "e9fe3cd6-a4ea-467d-a798-02791994eccd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Cancel",
+                    "type": "Button",
+                    "id": "ff06c6b6-757c-4eb8-b67d-a8e128ea9fe6",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -231,12 +239,23 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "28ded15c-d804-4a12-bb1e-a80420a2d911",
-                    "path": "<Gamepad>/start",
+                    "id": "a83196ca-a4a5-4642-9e66-11e7a23542ce",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Join",
+                    "action": "Confirm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "24e4026a-bcce-4872-9a7f-20c799626e61",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Cancel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

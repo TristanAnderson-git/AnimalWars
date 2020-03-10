@@ -229,13 +229,21 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ]
         },
         {
-            ""name"": ""Menu"",
+            ""name"": ""Join"",
             ""id"": ""211bab3f-c465-4857-aa4b-331a239ecfbd"",
             ""actions"": [
                 {
-                    ""name"": ""Join"",
+                    ""name"": ""Confirm"",
                     ""type"": ""Button"",
-                    ""id"": ""fefa1d78-33ea-475b-ad6f-51b81a7604eb"",
+                    ""id"": ""e9fe3cd6-a4ea-467d-a798-02791994eccd"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""ff06c6b6-757c-4eb8-b67d-a8e128ea9fe6"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -244,12 +252,23 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""28ded15c-d804-4a12-bb1e-a80420a2d911"",
-                    ""path"": ""<Gamepad>/start"",
+                    ""id"": ""a83196ca-a4a5-4642-9e66-11e7a23542ce"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Join"",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""24e4026a-bcce-4872-9a7f-20c799626e61"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -274,9 +293,10 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         // Movement
         m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
         m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
-        // Menu
-        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
-        m_Menu_Join = m_Menu.FindAction("Join", throwIfNotFound: true);
+        // Join
+        m_Join = asset.FindActionMap("Join", throwIfNotFound: true);
+        m_Join_Confirm = m_Join.FindAction("Confirm", throwIfNotFound: true);
+        m_Join_Cancel = m_Join.FindAction("Cancel", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -478,38 +498,46 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     }
     public MovementActions @Movement => new MovementActions(this);
 
-    // Menu
-    private readonly InputActionMap m_Menu;
-    private IMenuActions m_MenuActionsCallbackInterface;
-    private readonly InputAction m_Menu_Join;
-    public struct MenuActions
+    // Join
+    private readonly InputActionMap m_Join;
+    private IJoinActions m_JoinActionsCallbackInterface;
+    private readonly InputAction m_Join_Confirm;
+    private readonly InputAction m_Join_Cancel;
+    public struct JoinActions
     {
         private @PlayerControls m_Wrapper;
-        public MenuActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Join => m_Wrapper.m_Menu_Join;
-        public InputActionMap Get() { return m_Wrapper.m_Menu; }
+        public JoinActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Confirm => m_Wrapper.m_Join_Confirm;
+        public InputAction @Cancel => m_Wrapper.m_Join_Cancel;
+        public InputActionMap Get() { return m_Wrapper.m_Join; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(MenuActions set) { return set.Get(); }
-        public void SetCallbacks(IMenuActions instance)
+        public static implicit operator InputActionMap(JoinActions set) { return set.Get(); }
+        public void SetCallbacks(IJoinActions instance)
         {
-            if (m_Wrapper.m_MenuActionsCallbackInterface != null)
+            if (m_Wrapper.m_JoinActionsCallbackInterface != null)
             {
-                @Join.started -= m_Wrapper.m_MenuActionsCallbackInterface.OnJoin;
-                @Join.performed -= m_Wrapper.m_MenuActionsCallbackInterface.OnJoin;
-                @Join.canceled -= m_Wrapper.m_MenuActionsCallbackInterface.OnJoin;
+                @Confirm.started -= m_Wrapper.m_JoinActionsCallbackInterface.OnConfirm;
+                @Confirm.performed -= m_Wrapper.m_JoinActionsCallbackInterface.OnConfirm;
+                @Confirm.canceled -= m_Wrapper.m_JoinActionsCallbackInterface.OnConfirm;
+                @Cancel.started -= m_Wrapper.m_JoinActionsCallbackInterface.OnCancel;
+                @Cancel.performed -= m_Wrapper.m_JoinActionsCallbackInterface.OnCancel;
+                @Cancel.canceled -= m_Wrapper.m_JoinActionsCallbackInterface.OnCancel;
             }
-            m_Wrapper.m_MenuActionsCallbackInterface = instance;
+            m_Wrapper.m_JoinActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Join.started += instance.OnJoin;
-                @Join.performed += instance.OnJoin;
-                @Join.canceled += instance.OnJoin;
+                @Confirm.started += instance.OnConfirm;
+                @Confirm.performed += instance.OnConfirm;
+                @Confirm.canceled += instance.OnConfirm;
+                @Cancel.started += instance.OnCancel;
+                @Cancel.performed += instance.OnCancel;
+                @Cancel.canceled += instance.OnCancel;
             }
         }
     }
-    public MenuActions @Menu => new MenuActions(this);
+    public JoinActions @Join => new JoinActions(this);
     public interface IOrdersActions
     {
         void OnOrder_0(InputAction.CallbackContext context);
@@ -529,8 +557,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
     }
-    public interface IMenuActions
+    public interface IJoinActions
     {
-        void OnJoin(InputAction.CallbackContext context);
+        void OnConfirm(InputAction.CallbackContext context);
+        void OnCancel(InputAction.CallbackContext context);
     }
 }

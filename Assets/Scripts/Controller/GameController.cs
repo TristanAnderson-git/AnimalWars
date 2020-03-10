@@ -61,17 +61,21 @@ public class GameController : MonoBehaviour
             camera.GetComponent<CameraController>().SetUp(i, players.Count, players[i].transform);
             InspectorName(camera, "Player" + players.Count + " Camera");
         }
+
+        SceneManager.sceneLoaded -= SetupPlayers;
     }
 
     public void OnPlayerJoined(PlayerInput obj)
     {
         GameObject player = obj.gameObject;
+        player.GetComponent<PlayerController>().selectOption = playerSelectMenu.players[players.Count];
         DontDestroyOnLoad(player);
+
+        playerSelectMenu.players[players.Count].PlayerJoin();
 
         players.Add(player);
         InspectorName(player, "Player" + players.Count);
 
-        playerSelectMenu.players[players.Count - 1].PlayerJoin();
     }
 
     public static void InspectorName(GameObject gameObject, string name)

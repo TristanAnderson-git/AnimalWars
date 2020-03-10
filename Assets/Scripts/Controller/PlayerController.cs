@@ -7,9 +7,12 @@ public class PlayerController : MonoBehaviour
 {
     private Vector2 moveDir;
     public LayerMask ground;
-
+    public PlayerSelectOption selectOption;
     
     void OnMove(InputValue value) => moveDir = value.Get<Vector2>();
+
+    void OnConfirm() => selectOption.SetReady(true);
+    void OnCancel() => selectOption.SetReady(false);
 
     private void Update()
     {

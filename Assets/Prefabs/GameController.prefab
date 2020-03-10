@@ -92,7 +92,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_JoinAction:
-    m_UseReference: 1
+    m_UseReference: 0
     m_Action:
       m_Name: Join
       m_Type: 0
@@ -100,9 +100,16 @@ MonoBehaviour:
       m_Id: 86746e0d-d779-44f9-bd27-7b58e3f55377
       m_Processors: 
       m_Interactions: 
-      m_SingletonActionBindings: []
-    m_Reference: {fileID: 2089521180236616995, guid: 728bc4dca43ccad43b18e7a0cb3bebd2,
-      type: 3}
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: f75dea11-e07f-478c-9dca-62ad7580ffbc
+        m_Path: <Gamepad>/start
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Join
+        m_Flags: 0
+    m_Reference: {fileID: 0}
   m_PlayerPrefab: {fileID: 4593690233572715782, guid: 907c385b005b63242923a2860a935cb8,
     type: 3}
   m_SplitScreen: 0

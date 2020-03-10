@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerSelectMenu : MonoBehaviour
 {
@@ -36,7 +35,21 @@ public class PlayerSelectMenu : MonoBehaviour
 
     void Update()
     {
-        if (GameController.GetPlayerInputManager().playerCount == GameController.GetPlayerInputManager().maxPlayerCount)
+        if (CheckAllReady())
             GameController.instance.StartMatch();
+    }
+
+    bool CheckAllReady()
+    {
+        if (GameController.GetPlayerInputManager().playerCount != GameController.GetPlayerInputManager().maxPlayerCount)
+            return false;
+
+        foreach (PlayerSelectOption option in players)
+        {
+            if (!option.isReady)
+                return false;
+        }
+
+        return true;
     }
 }
