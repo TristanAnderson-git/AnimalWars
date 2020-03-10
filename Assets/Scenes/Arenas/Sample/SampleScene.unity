@@ -613,9 +613,9 @@ MonoBehaviour:
   owner: -1
   refreshPerformTime: 0
   buildTime: 1
-  existsInEnvirenment: 0
+  existsInEnvirenment: 1
   progress: 0
-  type: 0
+  type: 4
   maximumWorkers: 0
   productionAmount: 0
   maximumStorage: 0
@@ -636,7 +636,7 @@ MonoBehaviour:
   owner: -1
   refreshPerformTime: 0
   buildTime: 1
-  existsInEnvirenment: 0
+  existsInEnvirenment: 1
   progress: 0
   unitData: {fileID: 0}
   unitPrefab: {fileID: 0}
@@ -659,9 +659,6 @@ MonoBehaviour:
   buildTime: 1
   existsInEnvirenment: 0
   progress: 0
-  hut: {fileID: 0}
-  storage: {fileID: 0}
-  sink: {fileID: 0}
 --- !u!1 &1856852023
 GameObject:
   m_ObjectHideFlags: 0

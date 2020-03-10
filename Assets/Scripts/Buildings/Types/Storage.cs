@@ -32,16 +32,9 @@ public class Storage : Building
     {
         int amount = Mathf.Min(sink.productionAmount, sink.maximumStorage);
 
-        unit.storage.amountHarvested -= amount;
+        sink.currentStorage -= amount;
 
-        if (unit.storage.type == ResourceType.All)
-        {
-            for (int i = 0; i < 4; i++)
-                resources[i] += amount;
-        }
-        else
-        {
-            resources[(int)unit.storage.type] += amount;
-        }
+        for (int i = 0; i < 4; i++)
+            resources[i] += amount;
     }
 }
