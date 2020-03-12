@@ -16,6 +16,12 @@ public class PlayerController : MonoBehaviour
     void OnConfirm() => selectOption.SetReady(true);
     void OnCancel() => selectOption.SetReady(false);
 
+    public void GetBase()
+    {
+        Base myBase = GameObject.Find("Base").GetComponent<Base>();
+        ownedBuildings.Add(myBase);
+    }
+
     private void Update()
     {
         if (moveDir != Vector2.zero)

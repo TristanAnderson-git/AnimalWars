@@ -28,7 +28,7 @@ public class ActionFollowPlayer : Action
         if (navAgent == null)
             navAgent = GetComponent<NavMeshAgent>();
 
-        if(GameController.players.Count > 0 && target == null)
+        if(GameController.players.Count >= 0 && target == null)
             target = GameController.players[unit.owner].gameObject;
 
         return target != null && navAgent != null;

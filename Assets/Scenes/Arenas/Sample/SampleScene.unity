@@ -553,8 +553,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1830528049}
   - component: {fileID: 1830528053}
-  - component: {fileID: 1830528050}
   - component: {fileID: 1830528052}
+  - component: {fileID: 1830528050}
   - component: {fileID: 1830528051}
   m_Layer: 0
   m_Name: Base
@@ -594,7 +594,7 @@ MonoBehaviour:
   owner: -1
   refreshPerformTime: 0
   buildTime: 1
-  existsInEnvirenment: 1
+  existsInEnvirenment: 0
   progress: 0
   resources: 00000000000000000000000000000000
 --- !u!114 &1830528051
@@ -613,12 +613,12 @@ MonoBehaviour:
   owner: -1
   refreshPerformTime: 0
   buildTime: 1
-  existsInEnvirenment: 1
+  existsInEnvirenment: 0
   progress: 0
   type: 4
   maximumWorkers: 0
-  productionAmount: 0
-  maximumStorage: 0
+  productionAmount: 2
+  maximumStorage: 999
   currentStorage: 0
 --- !u!114 &1830528052
 MonoBehaviour:
@@ -636,11 +636,12 @@ MonoBehaviour:
   owner: -1
   refreshPerformTime: 0
   buildTime: 1
-  existsInEnvirenment: 1
+  existsInEnvirenment: 0
   progress: 0
-  unitData: {fileID: 0}
-  unitPrefab: {fileID: 0}
-  spawnDistance: 0
+  unitData: {fileID: 11400000, guid: 961aa34935edfd8428a4b3ce7400e8d4, type: 2}
+  unitPrefab: {fileID: 3179933255274001211, guid: 81f436949c39c8443a9941f1b53597e9,
+    type: 3}
+  spawnDistance: 3.31
 --- !u!114 &1830528053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -653,9 +654,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db28d13900e9b548aa589daaf8114ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  owner: -1
-  refreshPerformTime: 0
+  health: 100
+  owner: 0
+  refreshPerformTime: 1
   buildTime: 1
   existsInEnvirenment: 0
   progress: 0

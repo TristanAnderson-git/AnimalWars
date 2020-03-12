@@ -10,13 +10,14 @@ public class Hut : Building
 
     public override void Init()
     {
-        spawnPoint = spawnDistance * transform.forward;
+        spawnPoint = spawnDistance * transform.forward + transform.position;
     }
 
     public override void Perform()
     {
         Unit unit = Instantiate(unitPrefab, spawnPoint, transform.rotation).GetComponent<Unit>();
-        unit.Spawn(unitData.health, unitData.stats, owner);
+        GameController.players[owner].ownedUnitCount++;
+        unit.Spawn(unitData.health, unitData.stats, unitData.storage, owner);
     }
 
     public override void Die()
@@ -30,7 +31,8 @@ public class Hut : Building
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        Gizmo.DrawCircle(spawnPoint, 8, 0.1f, Color.green);
+        Vector3 point = spawnDistance * transform.forward + transform.position;
+        Gizmo.DrawCircle(point, 8, 0.5f, Color.green);
     }
 #endif
 }

@@ -19,7 +19,7 @@ public class ActionAttackTarget : Action
 
 	public override bool CheckPreconditions(GameObject agent)
 	{
-        if (target != null || entity == null)
+        if (target != null && entity == null)
             entity = target.GetComponent<Entity>();
 
         return target != null || entity != null;

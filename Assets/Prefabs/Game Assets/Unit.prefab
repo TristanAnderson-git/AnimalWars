@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3179933255274001344}
   - component: {fileID: 9039701740684455172}
   - component: {fileID: 3179933255274001215}
+  - component: {fileID: 3522608281643964915}
   - component: {fileID: 3179933255274001214}
-  - component: {fileID: 3179933255274001213}
   - component: {fileID: 3179933255274001345}
   - component: {fileID: 3179933255274001212}
   - component: {fileID: 1173967369}
@@ -75,6 +75,29 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3522608281643964915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3179933255274001211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0d82407dfed88448eceaabe8d18466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 50
+  owner: -1
+  secondayGoalKey: 1
+  stats:
+    speed: 0
+    attack: 0
+    harvestPerSecond: 0
+  storage:
+    type: 0
+    maxHarvest: 0
+    amountHarvested: 0
 --- !u!114 &3179933255274001214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,29 +111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actions: []
---- !u!114 &3179933255274001213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3179933255274001211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cee72e3f5b639a543b2f6cd07a21aa22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  owner: 0
-  secondayGoalKey: 1
-  stats:
-    speed: 0
-    attack: 0
-    harvestPerSecond: 10
-  storage:
-    type: 0
-    maxHarvest: 50
-    amountHarvested: 0
 --- !u!114 &3179933255274001345
 MonoBehaviour:
   m_ObjectHideFlags: 0

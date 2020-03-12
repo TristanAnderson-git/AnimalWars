@@ -14,11 +14,17 @@ public class Base : Building
         storage = GetComponent<Storage>();
         sink = GetComponent<ResourceSink>();
 
+        hut.health = storage.health = sink.health = health;
+        hut.owner = storage.owner = sink.owner = owner;
+        hut.refreshPerformTime = storage.refreshPerformTime = sink.refreshPerformTime = refreshPerformTime;
+
         hut.Init();
 
         // Spawn in starting units
         for (int i = 0; i < 5; i++)
             hut.Perform();
+
+        StartTask();
     }
 
     public override void Die()
@@ -34,7 +40,11 @@ public class Base : Building
 
     public override void Perform()
     {
-        if (owner < 5)
+        if (GameController.players[owner].ownedUnitCount < 5)
             hut.Perform();
+
+        sink.Perform();
+        storage.DepositRecource(sink);
+        storage.Perform();
     }
 }

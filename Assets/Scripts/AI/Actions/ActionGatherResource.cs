@@ -22,8 +22,17 @@ public class ActionGatherResource : Action
     public override bool CheckPreconditions(GameObject agent)
     {
         unit = GetComponent<Unit>();
-        if (target != null)
-            storage = target.GetComponent<Storage>();
+        Building[] buildings = GameController.players[unit.owner].ownedBuildings.ToArray();
+
+        for (int i = 0; i < buildings.Length; i++)
+        {
+            storage = buildings[i].GetComponent<Storage>();
+            if (storage != null)
+            {
+                target = storage.gameObject;
+                break;
+            }
+        }
 
         return target != null && unit != null && storage != null;
     }

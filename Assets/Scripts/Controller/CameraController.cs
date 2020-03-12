@@ -12,15 +12,17 @@ public class CameraController : MonoBehaviour
 
         Camera cam = GetComponent<Camera>();
 
-        Vector2 position;
-        Vector2 size;
+        Vector2 position = Vector2.zero;
+        Vector2 size = Vector2.one;
 
+        if (playerCount > 1)
+        {
+            if (playerCount == 3)
+                playerCount = 4;
 
-        if (playerCount == 3)
-            playerCount = 4;
-
-        position = new Vector2(Mathf.Clamp01(playerNumber - 1f) * 0.5f, Mathf.Abs(((playerNumber % 2) - 1f) * 0.5f));
-        size = new Vector2(2f / playerCount, 0.5f);
+            position = new Vector2(Mathf.Clamp01(playerNumber - 1f) * 0.5f, Mathf.Abs(((playerNumber % 2) - 1f) * 0.5f));
+            size = new Vector2(2f / playerCount, 0.5f);
+        }
 
         cam.rect = new Rect(position, size);
     }

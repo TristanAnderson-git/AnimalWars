@@ -48,10 +48,11 @@ public class Unit : Entity, GOAP.Interface
         CheckHealth();
     }
 
-    public void Spawn(int health, UnitStats stats, int owner)
+    public void Spawn(int health, UnitStats stats, UnitStorage storage, int owner)
     {
         this.health = health;
         this.stats = stats;
+        this.storage = storage;
         this.owner = owner;
     }
 
@@ -139,6 +140,7 @@ public class Unit : Entity, GOAP.Interface
     // ENTITY FUNCTIONALITY
     public override void Die()
     {
-        gameObject.SetActive(false);
+        GameController.players[owner].ownedUnitCount--;
+        Destroy(gameObject);
     }
 }

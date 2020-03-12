@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.InputSystem;
 using TMPro;
 
 public class PlayerSelectOption : MonoBehaviour
@@ -17,8 +14,11 @@ public class PlayerSelectOption : MonoBehaviour
 
     public void SetReady(bool isReady)
     {
-        ready.SetActive(isReady);
-        this.isReady = isReady;
+        if (ready != null)
+        {
+            ready.SetActive(isReady);
+            this.isReady = isReady;
+        }
     }
 
     public void PlayerJoin()

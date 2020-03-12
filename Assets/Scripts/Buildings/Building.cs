@@ -55,7 +55,7 @@ public abstract class Building : Entity
         }
     }
 
-    private void StartTask()
+    protected void StartTask()
     {
         if (currentState == null)
             currentState = StartCoroutine(Task());

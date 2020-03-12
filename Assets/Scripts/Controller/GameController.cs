@@ -74,7 +74,8 @@ public class GameController : MonoBehaviour
 
     private void SetUpBuilding()
     {
-        
+        for (int i = 0; i < players.Count; i++)
+            players[i].GetBase();
     }
 
     public void OnPlayerJoined(PlayerInput obj)
