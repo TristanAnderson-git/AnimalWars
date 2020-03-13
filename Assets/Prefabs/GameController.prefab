@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4771849566735189434}
   - component: {fileID: 4771849566735189433}
-  - component: {fileID: 4771849566735189435}
   - component: {fileID: 4771849566735189436}
   m_Layer: 0
   m_Name: GameController
@@ -50,25 +49,6 @@ MonoBehaviour:
   cameraPrefab: {fileID: 327706637643183058, guid: 63a24d8c0688de047b2bc8442d9c98cc,
     type: 3}
   playerSelectMenu: {fileID: 0}
---- !u!114 &4771849566735189435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4771849566735189432}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 958bb2e7491f4234096efec389dc2149, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxUnitsPerPlayer: 1
-  numberOfPlayers: 1
-  unitPrefab: {fileID: 3179933255274001211, guid: 81f436949c39c8443a9941f1b53597e9,
-    type: 3}
-  unitBase: {fileID: 0}
-  farmland: {fileID: 0}
-  enemy: {fileID: 0}
 --- !u!114 &4771849566735189436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,15 +62,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_NotificationBehavior: 0
-  m_MaxPlayerCount: 2
+  m_MaxPlayerCount: 1
   m_AllowJoining: 1
   m_JoinBehavior: 1
   m_PlayerJoinedEvent:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInputManager+PlayerJoinedEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_PlayerLeftEvent:
     m_PersistentCalls:
       m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInputManager+PlayerLeftEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_JoinAction:
     m_UseReference: 0
     m_Action:

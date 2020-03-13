@@ -192,11 +192,6 @@ PrefabInstance:
       propertyPath: playerSelectMenu
       value: 
       objectReference: {fileID: 1773290628}
-    - target: {fileID: 4771849566735189436, guid: abe3ee935961a304995504ce1915bcf0,
-        type: 3}
-      propertyPath: m_MaxPlayerCount
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abe3ee935961a304995504ce1915bcf0, type: 3}
 --- !u!1 &487672459
