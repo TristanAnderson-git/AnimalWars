@@ -20,6 +20,12 @@ public class ResourceSink : Building
 
     public override void Init()
     {
+        
+    }
+
+    public void StartDemoProcess()
+    {
+        StartTask();
     }
 
     public override void Die()

@@ -57,7 +57,7 @@ public class OrderController : MonoBehaviour
         {
             if (activeOrders[i])
             {
-                Gizmos.color = Color.green;
+                Gizmos.color = Color.white;
                 Gizmos.DrawWireSphere(transform.position, radius);
             }
         }

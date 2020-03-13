@@ -5,9 +5,10 @@ public class ConstructionController : MonoBehaviour
 {
     private InputActionAsset inputAsset;
 
-    public BuildingData[] buildings;
-    private BuildingData selected;
+    public GameObject[] buildings;
+    private GameObject selected;
     public int currentIndex;
+    public int previousIndex;
 
     public float buildDistance;
 
@@ -20,7 +21,7 @@ public class ConstructionController : MonoBehaviour
 
     private void Awake()
     {
-        currentIndex = 0;
+        currentIndex = previousIndex = 0;
         selected = buildings[currentIndex];
 
         inputAsset = GetComponent<PlayerInput>().actions;
@@ -50,10 +51,10 @@ public class ConstructionController : MonoBehaviour
     void OnSwapNext() => Swap(1);
     void OnSwapPrevious() => Swap(-1);
 
-
-
     private void Update()
     {
+        GameController.players[0].canMove = !showPreview;
+
         if (showPreview)
             Preview();
     }
@@ -70,12 +71,17 @@ public class ConstructionController : MonoBehaviour
         
         pos = new Vector3(rightStickInput.x, 0, rightStickInput.y).normalized * buildDistance + transform.position;
         rot = Quaternion.LookRotation((transform.position - pos).normalized, Vector3.up);
+
+        if (preview != null)
+        {
+            preview.transform.position = pos;
+        }
     }
 
     private void Construct()
     {
         if (preview != null)
-            Instantiate(selected.prefab, pos, rot);
+            Instantiate(selected, pos, rot);
     }
 
     private void Cancel()
@@ -86,7 +92,15 @@ public class ConstructionController : MonoBehaviour
     private void StartPreview()
     {
         if (preview == null && selected != null)
-            preview = Instantiate(selected.prefab, Vector3.zero, Quaternion.identity);
+        {
+            preview = Instantiate(selected, Vector3.forward, Quaternion.identity);
+
+            ResourceSink sink = preview.GetComponent<ResourceSink>();
+            if (sink != null)
+            {
+                sink.StartDemoProcess();
+            }
+        }
     }
 
     private void EndPreview()
@@ -103,11 +117,11 @@ public class ConstructionController : MonoBehaviour
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        if (showPreview)
-        {
-            Gizmos.color = Color.white;
-            Gizmos.DrawCube(pos, Vector3.one);
-        }
+        //if (showPreview)
+        //{
+        //    Gizmos.color = Color.white;
+        //    Gizmos.DrawCube(pos, Vector3.one);
+        //}
     }
 #endif
 }

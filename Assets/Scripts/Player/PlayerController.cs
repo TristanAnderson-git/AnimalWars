@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public PlayerSelectOption selectOption;
+    public bool canMove = true;
 
     public int ownedUnitCount;
     public List<Building> ownedBuildings;

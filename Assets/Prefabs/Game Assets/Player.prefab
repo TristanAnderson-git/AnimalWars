@@ -120,11 +120,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildings:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 3226690153216986420, guid: c782cf7adf9a7364ca25cf4e8ccddc81, type: 3}
+  - {fileID: 1251100793102719514, guid: 9dee75ec13b37134da269ead3b2b1014, type: 3}
+  - {fileID: 2353650429152707982, guid: 451409ba9c8de4a4eb19db7accd40a48, type: 3}
   currentIndex: 0
   buildDistance: 1
   showPreview: 0

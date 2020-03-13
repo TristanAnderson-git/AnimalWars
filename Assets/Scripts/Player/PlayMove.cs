@@ -21,7 +21,7 @@ public class PlayMove : MonoBehaviour
 
         //Vector2 move = transform.right * x + transform.forward * z;
 
-        if(toMove != Vector2.zero)
+        if(toMove != Vector2.zero && GameController.players[0].canMove)
         {
             controller.Move((new Vector3(toMove.x, 0, toMove.y) * speed + Physics.gravity) * Time.deltaTime);
         }

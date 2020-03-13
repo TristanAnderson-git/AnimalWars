@@ -62,8 +62,6 @@ public class ActionAttackTarget : Action
     IEnumerator RecoverFromAttack(float waitTime)
     {
         entity.health -= 0; // Some calculated damage value
-        print("ATTACK!");
-
         yield return new WaitForSeconds(waitTime);
         recover = null;
     }
