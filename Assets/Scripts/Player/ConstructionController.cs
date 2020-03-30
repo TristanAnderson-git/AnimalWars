@@ -14,7 +14,7 @@ public class ConstructionController : MonoBehaviour
 
     private GameObject preview;
     private Vector2 rightStickInput = Vector2.up;
-    public bool showPreview = false;
+    public bool showPreview = true;
 
     private Vector3 pos;
     private Quaternion rot;
@@ -40,12 +40,12 @@ public class ConstructionController : MonoBehaviour
             Cancel();
     }
 
-    void OnRightStick(InputValue value)
+    void OnPlace(InputValue value)
     {
         Vector2 input = value.Get<Vector2>();
 
         if (input != Vector2.zero)
-        rightStickInput = input;
+            rightStickInput = input;
     }
 
     void OnSwapNext() => Swap(1);
@@ -62,6 +62,9 @@ public class ConstructionController : MonoBehaviour
     void Swap(int direction)
     {
         currentIndex = (currentIndex + direction) % buildings.Length;
+        if (currentIndex < 0)
+            currentIndex = buildings.Length - 1;
+
         selected = buildings[currentIndex];
     }
 

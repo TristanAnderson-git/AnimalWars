@@ -14,10 +14,10 @@ public class OrderController : MonoBehaviour
         activeOrders = new bool[4];
     }
 
-    void OnOrder_0(InputValue value) => activeOrders[0] = value.isPressed;
-    void OnOrder_1(InputValue value) => activeOrders[1] = value.isPressed;
-    void OnOrder_2(InputValue value) => activeOrders[2] = value.isPressed;
-    void OnOrder_3(InputValue value) => activeOrders[3] = value.isPressed;
+    void OnUnknown(InputValue value) => activeOrders[(int)OrderControls.Unknown] = value.isPressed;
+    void OnAttack(InputValue value) => activeOrders[(int)OrderControls.Attack] = value.isPressed;
+    void OnGather(InputValue value) => activeOrders[(int)OrderControls.Gather] = value.isPressed;
+    void OnFollow(InputValue value) => activeOrders[(int)OrderControls.Follow] = value.isPressed;
 
     private void Update()
     {

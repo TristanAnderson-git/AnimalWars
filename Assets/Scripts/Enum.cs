@@ -10,6 +10,14 @@ public enum ResourceType
     All
 };
 
+public enum OrderControls
+{
+    Unknown = 0,
+    Attack = 1,
+    Gather = 2,
+    Follow = 3
+}
+
 // For building Action keys dynamically with the CreateAction tool
 // Leave this enum at the bottom of the code - add any new enums above
 namespace GOAP

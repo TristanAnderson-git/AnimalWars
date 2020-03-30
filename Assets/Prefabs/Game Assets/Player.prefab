@@ -83,6 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectOption: {fileID: 0}
+  canMove: 1
   ownedUnitCount: 0
   ownedBuildings: []
   playerID: 0
@@ -124,8 +125,9 @@ MonoBehaviour:
   - {fileID: 1251100793102719514, guid: 9dee75ec13b37134da269ead3b2b1014, type: 3}
   - {fileID: 2353650429152707982, guid: 451409ba9c8de4a4eb19db7accd40a48, type: 3}
   currentIndex: 0
+  previousIndex: 0
   buildDistance: 1
-  showPreview: 0
+  showPreview: 1
 --- !u!114 &3339285331543773556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,18 +147,12 @@ MonoBehaviour:
   m_DeviceLostEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInput+DeviceLostEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_DeviceRegainedEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInput+DeviceRegainedEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.InputSystem.PlayerInput+ControlsChangedEvent, Unity.InputSystem,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 

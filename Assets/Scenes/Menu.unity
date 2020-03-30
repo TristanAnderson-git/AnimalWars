@@ -346,6 +346,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4771849566735189436, guid: abe3ee935961a304995504ce1915bcf0,
+        type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4771849566735189436, guid: abe3ee935961a304995504ce1915bcf0,
+        type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[1].m_Id
+      value: 332bab2d-c720-4749-8b38-6597687867c2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4771849566735189436, guid: abe3ee935961a304995504ce1915bcf0,
+        type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[1].m_Action
+      value: Join
+      objectReference: {fileID: 0}
+    - target: {fileID: 4771849566735189436, guid: abe3ee935961a304995504ce1915bcf0,
+        type: 3}
+      propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[1].m_Path
+      value: <Keyboard>/anyKey
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abe3ee935961a304995504ce1915bcf0, type: 3}
 --- !u!1 &328022563

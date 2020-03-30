@@ -19,15 +19,15 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ""id"": ""ff574345-7c56-4903-9cd1-fb179373f515"",
             ""actions"": [
                 {
-                    ""name"": ""Order_0"",
+                    ""name"": ""Uknown"",
                     ""type"": ""Value"",
                     ""id"": ""f195bf6f-ef7d-40be-9725-9d7f101ee976"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Order_1"",
+                    ""name"": ""Attack"",
                     ""type"": ""Value"",
                     ""id"": ""17dc7633-0961-4444-8bef-e23524aa5a2b"",
                     ""expectedControlType"": ""Button"",
@@ -35,7 +35,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Order_2"",
+                    ""name"": ""Gather"",
                     ""type"": ""Value"",
                     ""id"": ""55f8e27d-c0ea-4c85-b2e9-c25dea659481"",
                     ""expectedControlType"": ""Button"",
@@ -43,7 +43,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Order_3"",
+                    ""name"": ""Follow"",
                     ""type"": ""Value"",
                     ""id"": ""04a639c6-d142-416e-8e3a-094917b9eb47"",
                     ""expectedControlType"": ""Button"",
@@ -59,7 +59,18 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Order_0"",
+                    ""action"": ""Uknown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a77b6909-5d24-48f5-9feb-c97cb4a024b9"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Uknown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -70,7 +81,18 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Order_1"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b614cc14-49f9-4f9a-88c1-a0d69d7e7cca"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -81,7 +103,18 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Order_2"",
+                    ""action"": ""Gather"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2c087472-f650-4744-ab4b-1ac983c93b4b"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Gather"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -92,7 +125,18 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Order_3"",
+                    ""action"": ""Follow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7a38dc78-5e80-4e2f-a892-4f18d4a51110"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Follow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -103,10 +147,10 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ""id"": ""e5a11009-fdaa-49d3-9386-efbd8198f99f"",
             ""actions"": [
                 {
-                    ""name"": ""RightStick"",
+                    ""name"": ""Place"",
                     ""type"": ""Value"",
-                    ""id"": ""318200be-ccad-40e6-8d1b-68db4ee2c4cf"",
-                    ""expectedControlType"": """",
+                    ""id"": ""a3f44d51-f6dc-467a-b294-4bb2ac7af096"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -114,7 +158,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": ""Build"",
                     ""type"": ""Button"",
                     ""id"": ""e99245d6-67ea-4f7a-b7e2-91493a72c335"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -122,7 +166,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": ""Preview"",
                     ""type"": ""Value"",
                     ""id"": ""34a99d64-3010-4ca6-b638-4f3212c0d82d"",
-                    ""expectedControlType"": ""Integer"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -157,8 +201,19 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""6f581c54-7dce-4451-98f0-417e346e1830"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Preview"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""33ec323f-d71b-4750-bd11-4c04325e57e6"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -168,12 +223,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""5730cbb9-b384-4781-9f35-4a3206e67769"",
-                    ""path"": ""<Gamepad>/rightStick"",
+                    ""id"": ""fc956e49-7f28-4f3f-a514-40d5e35d4c66"",
+                    ""path"": ""<Keyboard>/o"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""RightStick"",
+                    ""action"": ""Build"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -181,6 +236,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""590b27d2-61b6-497a-96c3-bfc90dafa6b6"",
                     ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwapNext"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""40c547f2-be9d-4c2a-baf5-443732f29bb1"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -198,6 +264,83 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""SwapPrevious"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""39f1bbfc-bff8-431c-8d33-ff9ba3f583a6"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwapPrevious"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2a2ed736-f2d7-432d-bd8f-72cc35a3a914"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Place"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""[Keyboard]"",
+                    ""id"": ""9ee46e98-4d65-49fd-ade4-3666541bbd73"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Place"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""74411a91-2f7a-47db-a372-f51a828a84f2"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Place"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""69b58968-3552-409e-95aa-e39258b8cd8d"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Place"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""6640b1fa-36a1-4c07-978f-94d51aba6937"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Place"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""48ff95d4-447f-4415-b208-63c8ae6d11ce"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Place"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -225,6 +368,61 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""[Keyboard]"",
+                    ""id"": ""98cc3092-bc93-4e62-8840-934eb1134d58"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""ec1d5690-1b04-47af-9f52-324e5adc4a11"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""5328c99b-f203-40dd-993a-980675249445"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""33adaaa4-bc2f-4f49-88ca-d6a0a87c1700"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""406ce540-c808-4905-be1d-51ee731f9424"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -263,8 +461,30 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""d4b31038-5710-47b2-ace3-baf4092bdb8e"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""24e4026a-bcce-4872-9a7f-20c799626e61"",
                     ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""825ebdae-d105-4f7c-a210-160fd8b6de37"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -279,13 +499,13 @@ public class @PlayerControls : IInputActionCollection, IDisposable
 }");
         // Orders
         m_Orders = asset.FindActionMap("Orders", throwIfNotFound: true);
-        m_Orders_Order_0 = m_Orders.FindAction("Order_0", throwIfNotFound: true);
-        m_Orders_Order_1 = m_Orders.FindAction("Order_1", throwIfNotFound: true);
-        m_Orders_Order_2 = m_Orders.FindAction("Order_2", throwIfNotFound: true);
-        m_Orders_Order_3 = m_Orders.FindAction("Order_3", throwIfNotFound: true);
+        m_Orders_Uknown = m_Orders.FindAction("Uknown", throwIfNotFound: true);
+        m_Orders_Attack = m_Orders.FindAction("Attack", throwIfNotFound: true);
+        m_Orders_Gather = m_Orders.FindAction("Gather", throwIfNotFound: true);
+        m_Orders_Follow = m_Orders.FindAction("Follow", throwIfNotFound: true);
         // Construction
         m_Construction = asset.FindActionMap("Construction", throwIfNotFound: true);
-        m_Construction_RightStick = m_Construction.FindAction("RightStick", throwIfNotFound: true);
+        m_Construction_Place = m_Construction.FindAction("Place", throwIfNotFound: true);
         m_Construction_Build = m_Construction.FindAction("Build", throwIfNotFound: true);
         m_Construction_Preview = m_Construction.FindAction("Preview", throwIfNotFound: true);
         m_Construction_SwapNext = m_Construction.FindAction("SwapNext", throwIfNotFound: true);
@@ -346,18 +566,18 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     // Orders
     private readonly InputActionMap m_Orders;
     private IOrdersActions m_OrdersActionsCallbackInterface;
-    private readonly InputAction m_Orders_Order_0;
-    private readonly InputAction m_Orders_Order_1;
-    private readonly InputAction m_Orders_Order_2;
-    private readonly InputAction m_Orders_Order_3;
+    private readonly InputAction m_Orders_Uknown;
+    private readonly InputAction m_Orders_Attack;
+    private readonly InputAction m_Orders_Gather;
+    private readonly InputAction m_Orders_Follow;
     public struct OrdersActions
     {
         private @PlayerControls m_Wrapper;
         public OrdersActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Order_0 => m_Wrapper.m_Orders_Order_0;
-        public InputAction @Order_1 => m_Wrapper.m_Orders_Order_1;
-        public InputAction @Order_2 => m_Wrapper.m_Orders_Order_2;
-        public InputAction @Order_3 => m_Wrapper.m_Orders_Order_3;
+        public InputAction @Uknown => m_Wrapper.m_Orders_Uknown;
+        public InputAction @Attack => m_Wrapper.m_Orders_Attack;
+        public InputAction @Gather => m_Wrapper.m_Orders_Gather;
+        public InputAction @Follow => m_Wrapper.m_Orders_Follow;
         public InputActionMap Get() { return m_Wrapper.m_Orders; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -367,34 +587,34 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_OrdersActionsCallbackInterface != null)
             {
-                @Order_0.started -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_0;
-                @Order_0.performed -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_0;
-                @Order_0.canceled -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_0;
-                @Order_1.started -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_1;
-                @Order_1.performed -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_1;
-                @Order_1.canceled -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_1;
-                @Order_2.started -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_2;
-                @Order_2.performed -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_2;
-                @Order_2.canceled -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_2;
-                @Order_3.started -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_3;
-                @Order_3.performed -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_3;
-                @Order_3.canceled -= m_Wrapper.m_OrdersActionsCallbackInterface.OnOrder_3;
+                @Uknown.started -= m_Wrapper.m_OrdersActionsCallbackInterface.OnUknown;
+                @Uknown.performed -= m_Wrapper.m_OrdersActionsCallbackInterface.OnUknown;
+                @Uknown.canceled -= m_Wrapper.m_OrdersActionsCallbackInterface.OnUknown;
+                @Attack.started -= m_Wrapper.m_OrdersActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_OrdersActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_OrdersActionsCallbackInterface.OnAttack;
+                @Gather.started -= m_Wrapper.m_OrdersActionsCallbackInterface.OnGather;
+                @Gather.performed -= m_Wrapper.m_OrdersActionsCallbackInterface.OnGather;
+                @Gather.canceled -= m_Wrapper.m_OrdersActionsCallbackInterface.OnGather;
+                @Follow.started -= m_Wrapper.m_OrdersActionsCallbackInterface.OnFollow;
+                @Follow.performed -= m_Wrapper.m_OrdersActionsCallbackInterface.OnFollow;
+                @Follow.canceled -= m_Wrapper.m_OrdersActionsCallbackInterface.OnFollow;
             }
             m_Wrapper.m_OrdersActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Order_0.started += instance.OnOrder_0;
-                @Order_0.performed += instance.OnOrder_0;
-                @Order_0.canceled += instance.OnOrder_0;
-                @Order_1.started += instance.OnOrder_1;
-                @Order_1.performed += instance.OnOrder_1;
-                @Order_1.canceled += instance.OnOrder_1;
-                @Order_2.started += instance.OnOrder_2;
-                @Order_2.performed += instance.OnOrder_2;
-                @Order_2.canceled += instance.OnOrder_2;
-                @Order_3.started += instance.OnOrder_3;
-                @Order_3.performed += instance.OnOrder_3;
-                @Order_3.canceled += instance.OnOrder_3;
+                @Uknown.started += instance.OnUknown;
+                @Uknown.performed += instance.OnUknown;
+                @Uknown.canceled += instance.OnUknown;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
+                @Gather.started += instance.OnGather;
+                @Gather.performed += instance.OnGather;
+                @Gather.canceled += instance.OnGather;
+                @Follow.started += instance.OnFollow;
+                @Follow.performed += instance.OnFollow;
+                @Follow.canceled += instance.OnFollow;
             }
         }
     }
@@ -403,7 +623,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     // Construction
     private readonly InputActionMap m_Construction;
     private IConstructionActions m_ConstructionActionsCallbackInterface;
-    private readonly InputAction m_Construction_RightStick;
+    private readonly InputAction m_Construction_Place;
     private readonly InputAction m_Construction_Build;
     private readonly InputAction m_Construction_Preview;
     private readonly InputAction m_Construction_SwapNext;
@@ -412,7 +632,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     {
         private @PlayerControls m_Wrapper;
         public ConstructionActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @RightStick => m_Wrapper.m_Construction_RightStick;
+        public InputAction @Place => m_Wrapper.m_Construction_Place;
         public InputAction @Build => m_Wrapper.m_Construction_Build;
         public InputAction @Preview => m_Wrapper.m_Construction_Preview;
         public InputAction @SwapNext => m_Wrapper.m_Construction_SwapNext;
@@ -426,9 +646,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_ConstructionActionsCallbackInterface != null)
             {
-                @RightStick.started -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnRightStick;
-                @RightStick.performed -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnRightStick;
-                @RightStick.canceled -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnRightStick;
+                @Place.started -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnPlace;
+                @Place.performed -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnPlace;
+                @Place.canceled -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnPlace;
                 @Build.started -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnBuild;
                 @Build.performed -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnBuild;
                 @Build.canceled -= m_Wrapper.m_ConstructionActionsCallbackInterface.OnBuild;
@@ -445,9 +665,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             m_Wrapper.m_ConstructionActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @RightStick.started += instance.OnRightStick;
-                @RightStick.performed += instance.OnRightStick;
-                @RightStick.canceled += instance.OnRightStick;
+                @Place.started += instance.OnPlace;
+                @Place.performed += instance.OnPlace;
+                @Place.canceled += instance.OnPlace;
                 @Build.started += instance.OnBuild;
                 @Build.performed += instance.OnBuild;
                 @Build.canceled += instance.OnBuild;
@@ -540,14 +760,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     public JoinActions @Join => new JoinActions(this);
     public interface IOrdersActions
     {
-        void OnOrder_0(InputAction.CallbackContext context);
-        void OnOrder_1(InputAction.CallbackContext context);
-        void OnOrder_2(InputAction.CallbackContext context);
-        void OnOrder_3(InputAction.CallbackContext context);
+        void OnUknown(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
+        void OnGather(InputAction.CallbackContext context);
+        void OnFollow(InputAction.CallbackContext context);
     }
     public interface IConstructionActions
     {
-        void OnRightStick(InputAction.CallbackContext context);
+        void OnPlace(InputAction.CallbackContext context);
         void OnBuild(InputAction.CallbackContext context);
         void OnPreview(InputAction.CallbackContext context);
         void OnSwapNext(InputAction.CallbackContext context);
