@@ -84,7 +84,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3179933255274001211}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf0d82407dfed88448eceaabe8d18466, type: 3}
+  m_Script: {fileID: 11500000, guid: cee72e3f5b639a543b2f6cd07a21aa22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
@@ -212,6 +212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7969490129519087865}
   - component: {fileID: 4593666763430023507}
+  - component: {fileID: 1446419089956350839}
   m_Layer: 0
   m_Name: Rabbit
   m_TagString: Untagged
@@ -282,3 +283,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1446419089956350839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8252829079089300509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3fafaafec1b50d43a1bdcc8a902dd91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

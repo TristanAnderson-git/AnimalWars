@@ -240,7 +240,7 @@ public sealed class GOAPAgent : MonoBehaviour
 	{
 		if (Gizmo.IsPlaying)
 		{
-			if (currentActions.Count == 0)
+			if (currentActions == null || currentActions.Count == 0)
 				return;
 
 			GOAP.Action current = currentActions.Peek();
