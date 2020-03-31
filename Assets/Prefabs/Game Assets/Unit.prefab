@@ -89,10 +89,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   owner: -1
-  secondayGoalKey: 1
+  secondayGoalKey: 8
   stats:
     speed: 0
-    attack: 0
+    attack: 25
     harvestPerSecond: 0
   storage:
     type: 0
@@ -165,9 +165,9 @@ MonoBehaviour:
   minExecDist: 2
   cost: 1
   inRange: 0
-  unit:
+  enemyLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2048
 --- !u!114 &2871660655371117883
 MonoBehaviour:
   m_ObjectHideFlags: 0

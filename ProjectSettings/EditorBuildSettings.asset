@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: a651f8216c0083246a6d93ee0fe04e42
   - enabled: 1
-    path: Assets/Scenes/Arenas/AlphaScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Arenas/BetaScene/BetaScene.unity
+    guid: cbca2e7e0d233574ab9660711cbbf89a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 42d6d8943fa0f1f45be928b570319eef,
       type: 2}

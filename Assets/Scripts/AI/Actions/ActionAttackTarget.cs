@@ -5,8 +5,9 @@ using System.Collections.Generic;
 
 public class ActionAttackTarget : Action
 {
-    Entity entity = null;
-    public LayerMask unit;
+    public LayerMask enemyLayer;
+    private enemy enemy = null;
+    private float damageValue = 0;
 
     public override void Reset()
 	{
@@ -16,23 +17,23 @@ public class ActionAttackTarget : Action
 	public ActionAttackTarget()
 	{
         AddEffect(ActionKey.KillEnemy, true);
-        AddEffect(ActionKey.DestroyBase, true);
     }
 
 	public override bool CheckPreconditions(GameObject agent)
 	{
         Unit u = GetComponent<Unit>();
+        damageValue = u.stats.attack;
 
         if (target == null)
         {
-            Collider[] colliders = Physics.OverlapSphere(transform.position, 25.0f, unit);
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 25.0f, enemyLayer);
             List<Collider> enemies= new List<Collider>();
 
             for (int i = 0; i < colliders.Length; i++)
             {
-                Entity e = colliders[i].GetComponent<Entity>();
+                enemy e = colliders[i].GetComponent<enemy>();
 
-                if (e != null && e.owner != u.owner)
+                if (e != null)
                     enemies.Add(colliders[i]);
             }
 
@@ -40,19 +41,23 @@ public class ActionAttackTarget : Action
                 target = Nearest(enemies.ToArray());
         }
 
-        if (target != null && entity == null)
-            entity = target.GetComponent<Entity>();
+        if (target != null && enemy == null)
+        {
+            enemy = target.GetComponent<enemy>();
+        }
 
-        return target != null || entity != null;
+        return target != null || enemy != null;
     }
 
 	public override bool IsDone()
 	{
-        return entity.health <= 0;
+        return enemy.health <= 0;
 	}
 
 	public override bool Perform(GameObject agent)
 	{
+        enemy.isBeingAttacked = true;
+        
         if (recover == null)
             recover = StartCoroutine(RecoverFromAttack(1.5f));
         return true;
@@ -61,7 +66,7 @@ public class ActionAttackTarget : Action
     Coroutine recover = null;
     IEnumerator RecoverFromAttack(float waitTime)
     {
-        entity.health -= 0; // Some calculated damage value
+        enemy.ReceiveDamage(damageValue);
         yield return new WaitForSeconds(waitTime);
         recover = null;
     }

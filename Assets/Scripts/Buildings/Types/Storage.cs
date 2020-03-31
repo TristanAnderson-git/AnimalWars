@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Storage : Building
 {
@@ -36,5 +34,11 @@ public class Storage : Building
 
         for (int i = 0; i < 4; i++)
             resources[i] += amount;
+    }
+
+    public void DepositRecource(int[] amount)
+    {
+        for (int i = 0; i < 4; i++)
+            resources[i] += amount[i];
     }
 }

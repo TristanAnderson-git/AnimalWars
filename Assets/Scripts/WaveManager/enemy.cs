@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class enemy : MonoBehaviour
 {
     // Start is called before the first frame update
     public float speed = 10;
     public float starthealth = 100;
-    private float health;
+    [HideInInspector] public float health;
+
+    public bool isBeingAttacked = false;
 
     private Transform target;
     private int wavepointIndex = 0;
@@ -22,24 +25,32 @@ public class enemy : MonoBehaviour
 
     private void Update()
     {
-        Vector3 dir = target.position - transform.position;
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-
-        if (Vector3.Distance(transform.position, target.position) <= 0.2f)
+        if (!isBeingAttacked)
         {
-            GetNextWaitPoint();
-        }
+            Vector3 dir = target.position - transform.position;
+            transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
 
-        void GetNextWaitPoint()
-        {
-            if (wavepointIndex >= waitpoints.points.Length - 1)
+            if (Vector3.Distance(transform.position, target.position) <= 0.2f)
             {
-                waveSpawner.OnEnemyKilled();
-                Destroy(gameObject);
-                return;
+                GetNextWaitPoint();
             }
-            wavepointIndex++;
-            target = waitpoints.points[wavepointIndex];
+
+            void GetNextWaitPoint()
+            {
+                if (wavepointIndex >= waitpoints.points.Length - 1)
+                {
+                    Destroy(GameController.players[0].gameObject);
+                    Destroy(GameController.instance.gameObject);
+
+                    waveSpawner.OnEnemyKilled();
+                    Destroy(gameObject);
+
+                    SceneManager.LoadScene(0);
+                    return;
+                }
+                wavepointIndex++;
+                target = waitpoints.points[wavepointIndex];
+            }
         }
     }
     
@@ -49,17 +60,14 @@ public class enemy : MonoBehaviour
         healthbar.fillAmount = health / starthealth;
     }
 
-    void OnMouseDown()
+    public void ReceiveDamage(float amount)
     {
-        damage(25);
+        damage(amount);
 
         if (health <= 0)
         {
             // Update with RTS base resource storage
-            //recources.watervalue += 3;
-            //recources.woodvalue += 3;
-            //recources.rocksvalue += 3;
-            //recources.foodvalue += 3;
+            Base.storage.DepositRecource(new int[4]{ 3, 3, 3, 3 });
 
             waveSpawner.OnEnemyKilled();
 

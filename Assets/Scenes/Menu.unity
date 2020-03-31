@@ -364,7 +364,7 @@ PrefabInstance:
     - target: {fileID: 4771849566735189436, guid: abe3ee935961a304995504ce1915bcf0,
         type: 3}
       propertyPath: m_JoinAction.m_Action.m_SingletonActionBindings.Array.data[1].m_Path
-      value: <Keyboard>/anyKey
+      value: <Keyboard>/enter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abe3ee935961a304995504ce1915bcf0, type: 3}
@@ -1102,11 +1102,11 @@ RectTransform:
   m_Father: {fileID: 1285053817}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1410, y: 71}
-  m_SizeDelta: {x: 100, y: -624}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 71}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1015908645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1572,11 +1572,11 @@ RectTransform:
   m_Father: {fileID: 1285053817}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 625.78, y: 93.2}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 93.200005}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1706927494
 MonoBehaviour:
   m_ObjectHideFlags: 0

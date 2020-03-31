@@ -1,12 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using TMPro;
 
 public class Base : Building
 {
-    private Hut hut;
-    private Storage storage;
-    private ResourceSink sink;
+    public static Hut hut;
+    public static Storage storage;
+    public static ResourceSink sink;
+
+    public TextMeshProUGUI[] resourceUI;
 
     public override void Init()
     {
@@ -27,14 +27,28 @@ public class Base : Building
         StartTask();
     }
 
+    void Update()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            string type;
+            switch (i)
+            {
+                case 0: type = "Water"; break;
+                case 1: type = "Wood"; break;
+                case 2: type = "Rocks"; break;
+                case 3: type = "Food"; break;
+                default: type = "Error"; break;
+            }
+
+            resourceUI[i].SetText(type + ": " + storage.resources[i]);
+        }
+    }
+
     public override void Die()
     {
-        if (GameController.players[owner] != null)
-        {
-            GameController.players[owner].RemoveBuilding(this);
-            GameController.players[owner] = null;
-        }
-
+        // Game Over
+        
         Destroy(gameObject);
     }
 
