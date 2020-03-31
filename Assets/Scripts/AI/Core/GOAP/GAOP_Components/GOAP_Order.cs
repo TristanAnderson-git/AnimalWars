@@ -2,13 +2,10 @@
 
 namespace GOAP
 {
-    public class Order : ScriptableObject
+    [System.Serializable]
+    public class Order
     {
-        public new string name;
-        [TextArea]
-        public string description;
-        public Sprite icon;
-
+        public string name;
         public GOAP.ActionKey goal;
         public byte priority = 0;
     }

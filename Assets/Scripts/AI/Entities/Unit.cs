@@ -107,7 +107,7 @@ public class Unit : Entity, GOAP.Interface
 
     public void ActionsFinished()
     {
-        ResetActiveGoal();
+        //ResetActiveGoal();
     }
 
     public void ResetActiveGoal()

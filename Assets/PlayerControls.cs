@@ -22,7 +22,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": ""Uknown"",
                     ""type"": ""Value"",
                     ""id"": ""f195bf6f-ef7d-40be-9725-9d7f101ee976"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },

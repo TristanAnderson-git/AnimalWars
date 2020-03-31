@@ -90,6 +90,11 @@ public class GameController : MonoBehaviour
 
         players.Add(player);
         InspectorName(player.gameObject, "Player" + players.Count);
+
+        if (players.Count == playerInputManager.maxPlayerCount)
+        {
+            playerInputManager.DisableJoining();
+        }
     }
 
     public static void InspectorName(GameObject gameObject, string name)
