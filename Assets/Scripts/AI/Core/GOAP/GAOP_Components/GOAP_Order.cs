@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace GOAP
+﻿namespace GOAP
 {
     [System.Serializable]
     public class Order

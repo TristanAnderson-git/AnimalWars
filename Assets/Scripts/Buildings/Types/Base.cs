@@ -31,17 +31,7 @@ public class Base : Building
     {
         for (int i = 0; i < 4; i++)
         {
-            string type;
-            switch (i)
-            {
-                case 0: type = "Water"; break;
-                case 1: type = "Wood"; break;
-                case 2: type = "Rocks"; break;
-                case 3: type = "Food"; break;
-                default: type = "Error"; break;
-            }
-
-            resourceUI[i].SetText(type + ": " + storage.resources[i]);
+            resourceUI[i].SetText(":" + storage.resources[i]);
         }
     }
 

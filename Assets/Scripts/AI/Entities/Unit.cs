@@ -118,22 +118,22 @@ public class Unit : Entity, GOAP.Interface
 
     public bool MoveAgent(Action nextAction)
     {
+        navAgent.stoppingDistance = nextAction.minExecDist;
+        navAgent.isStopped = false;
+
         if (nextAction.target != null)
         {
-            if (!navAgent.hasPath)
-            {
-                navAgent.SetDestination(nextAction.target.transform.position);
-                navAgent.stoppingDistance = nextAction.minExecDist;
-                navAgent.isStopped = false;
-                return false;
-            }
-            else if (navAgent.remainingDistance <= navAgent.stoppingDistance)
+            navAgent.SetDestination(nextAction.target.transform.position);
+            
+            if (navAgent.remainingDistance <= navAgent.stoppingDistance)
             {
                 navAgent.isStopped = true;
                 navAgent.ResetPath();
                 nextAction.inRange = true;
                 return true;
             }
+
+            return false;
         }
         return false;
     }

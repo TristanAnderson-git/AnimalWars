@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using GOAP;
+﻿using GOAP;
+using UnityEngine;
 using System.Collections;
 
 public class ActionGatherResource : Action
