@@ -144,7 +144,7 @@ MonoBehaviour:
   m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 1
+  m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &818810321
@@ -322,6 +322,7 @@ MonoBehaviour:
   speed: 4
   starthealth: 100
   health: 0
+  isBeingAttacked: 0
   healthbar: {fileID: 583341654}
 --- !u!208 &1393306052469649247
 NavMeshObstacle:

@@ -74,4 +74,10 @@ public class enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void UpdateUnitHealth()
+    {
+        health -= 25;
+        healthbar.fillAmount = health / starthealth;
+    }
 }

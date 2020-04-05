@@ -1,11 +1,17 @@
 ﻿using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class waveSpawner : MonoBehaviour
 {
     static waveSpawner instance;
     public static uint numberOfEnemies;
+
+    public float startUnithealth = 100;
+    [HideInInspector] public float Unithealth;
+    [Header("unity stuff")]
+    public Image Unithealthbar;
 
     // Start is called before the first frame update
     public Transform enemyPrefab;
@@ -19,6 +25,8 @@ public class waveSpawner : MonoBehaviour
     private int waveNumber = 0;
     private float timeRemaining = 0;
 
+   
+
     void Start()
     {
         if (instance != null)
@@ -28,6 +36,8 @@ public class waveSpawner : MonoBehaviour
         }
 
         instance = this;
+
+        Unithealth = startUnithealth;
     }
 
     void Update()
@@ -72,6 +82,11 @@ public class waveSpawner : MonoBehaviour
 
     public void UpdateEnemyCount()
     {
-        instance.enemyCountText.SetText("Enemies: " + numberOfEnemies);
+        instance.enemyCountText.SetText(" " + numberOfEnemies);
+    }
+
+    public void UpdateUnitHealth()
+    {
+
     }
 }
