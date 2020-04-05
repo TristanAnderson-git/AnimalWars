@@ -43,7 +43,10 @@ public class waitpoints : MonoBehaviour
         if (path.Length > 1)
         {
             for (int i = 1; i < path.Length; i++)
+            {
+                if (path[i - 1] != null && path[i] != null)
                 Gizmo.DrawLine(path[i - 1].position + Vector3.up * 0.1f, path[i].position + Vector3.up * 0.1f, Color.red);
+            }
         }
     }
 #endif

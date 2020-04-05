@@ -146,7 +146,7 @@ public sealed class GOAPAgent : MonoBehaviour
                     // If action fails, abort plan
                     if (!success)
                     {
-                        OverridePlan(fsm);
+						OverridePlan();
                         dataProvider.PlanAborted(action);
                     }
                 }
@@ -165,13 +165,10 @@ public sealed class GOAPAgent : MonoBehaviour
 		};
 	}
 
-    public void OverridePlan(FSM fsm = null)
+    public void OverridePlan()
     {
-        if (fsm == null)
-            fsm = stateMachine;
-
-        fsm.PopState();
-        fsm.PushState(idleState);
+        stateMachine.PopState();
+        stateMachine.PushState(idleState);
     }
 
     private void FindDataProvider()

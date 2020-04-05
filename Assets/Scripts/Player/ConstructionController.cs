@@ -3,8 +3,6 @@ using UnityEngine.InputSystem;
 
 public class ConstructionController : MonoBehaviour
 {
-    private InputActionAsset inputAsset;
-
     public GameObject[] buildings;
     private GameObject selected;
     public int currentIndex;
@@ -23,9 +21,6 @@ public class ConstructionController : MonoBehaviour
     {
         currentIndex = previousIndex = 0;
         selected = buildings[currentIndex];
-
-        inputAsset = GetComponent<PlayerInput>().actions;
-        inputAsset.Enable();
     }
 
     void OnBuild()

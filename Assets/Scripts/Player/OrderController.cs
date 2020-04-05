@@ -7,6 +7,8 @@ public class OrderController : MonoBehaviour
     public float radius;
     public LayerMask unitLayer;
 
+    public SpriteRenderer sprite;
+
     private bool[] activeOrders;
 
     private void Awake()
@@ -14,10 +16,10 @@ public class OrderController : MonoBehaviour
         activeOrders = new bool[4];
     }
 
-    void OnUnknown(InputValue value) => activeOrders[(int)OrderControls.Unknown] = value.isPressed;
-    void OnAttack(InputValue value) => activeOrders[(int)OrderControls.Attack] = value.isPressed;
-    void OnGather(InputValue value) => activeOrders[(int)OrderControls.Gather] = value.isPressed;
-    void OnFollow(InputValue value) => activeOrders[(int)OrderControls.Follow] = value.isPressed;
+    void OnUnknown(InputValue value) { activeOrders[0] = value.isPressed; }
+    void OnAttack(InputValue value) { activeOrders[1] = value.isPressed; }
+    void OnGather(InputValue value) { activeOrders[2] = value.isPressed; }
+    void OnFollow(InputValue value) { activeOrders[3] = value.isPressed; }
 
     private void Update()
     {
@@ -26,7 +28,7 @@ public class OrderController : MonoBehaviour
             if (activeOrders[i])
             {
                 GiveOrder(orderOptions[i]);
-                break;
+                return;
             }
         }
     }
@@ -38,7 +40,7 @@ public class OrderController : MonoBehaviour
         for (int i = 0; i < units.Length; i++)
         {
             Unit unit = units[i].GetComponent<Unit>();
-
+            
             if (unit != null)
             {
                 if (unit.CurrentOrderPriority <= order.priority || order.priority == 0)
@@ -47,7 +49,6 @@ public class OrderController : MonoBehaviour
         }
     }
 
-#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         if (activeOrders == null)
@@ -62,5 +63,4 @@ public class OrderController : MonoBehaviour
             }
         }
     }
-#endif
 }
