@@ -1220,7 +1220,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 3440695314791906941, guid: 9de90d2176b277c428eae58f9bbd5a4d,
     type: 3}
   spawnPoint: {fileID: 428177997}
-  timeBetweenWaves: 3
+  timeBetweenWaves: 30
   waveCountDownText: {fileID: 1521191370}
   enemyCountText: {fileID: 398635260}
 --- !u!114 &398635260 stripped
@@ -1699,6 +1699,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8639195785733857167, guid: 668b4e1702949ba419d41868d26b80bc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8846441024068065106, guid: 668b4e1702949ba419d41868d26b80bc,
         type: 3}
       propertyPath: m_IsActive
       value: 0
