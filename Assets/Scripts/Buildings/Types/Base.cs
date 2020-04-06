@@ -29,7 +29,7 @@ public class Base : Building
 
     void Update()
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 1; i++)
         {
             resourceUI[i].SetText(":" + storage.resources[i]);
         }
@@ -50,5 +50,12 @@ public class Base : Building
         sink.Perform();
         storage.DepositRecource(sink);
         storage.Perform();
+
+        // Gain a unit
+        if (storage.resources[0] >= 100)
+        {
+            hut.Perform();
+            storage.resources[0] -= 100;
+        }
     }
 }

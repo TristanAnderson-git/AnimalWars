@@ -117,6 +117,11 @@ public sealed class GOAPAgent : MonoBehaviour
 
 		performActionState = (fsm, gameObj) => {
 			// perform the action
+			GOAP.Action action = currentActions.Peek();
+			if (action.IsDone())
+			{
+				currentActions.Dequeue();
+			}
 
 			if (!HasActionPlan())
 			{
@@ -124,17 +129,10 @@ public sealed class GOAPAgent : MonoBehaviour
 				Debug.Log("<color=red>Done actions</color>");
 				fsm.PopState();
 				fsm.PushState(idleState);
-				dataProvider.ActionsFinished();
+				dataProvider.ActionsFinished(action);
 				return;
 			}
-
-			GOAP.Action action = currentActions.Peek();
-			if (action.IsDone())
-			{
-				currentActions.Dequeue();
-			}
-
-			if (HasActionPlan())
+			else
 			{
 				action = currentActions.Peek();
 				bool inRange = action.RequiresInRange() ? action.inRange : true;
@@ -155,13 +153,6 @@ public sealed class GOAPAgent : MonoBehaviour
 					fsm.PushState(moveToState);
 				}
 			}
-			else
-			{
-				fsm.PopState();
-				fsm.PushState(idleState);
-				dataProvider.ActionsFinished();
-			}
-
 		};
 	}
 

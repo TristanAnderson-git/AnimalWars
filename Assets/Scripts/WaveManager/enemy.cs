@@ -39,13 +39,18 @@ public class enemy : MonoBehaviour
             {
                 if (wavepointIndex >= waitpoints.points.Length - 1)
                 {
-                    Destroy(GameController.players[0].gameObject);
-                    Destroy(GameController.instance.gameObject);
+                    ReceiveDamage(999);
+                    waveSpawner.lives--;
+                    print(waveSpawner.lives);
 
-                    waveSpawner.OnEnemyKilled();
-                    Destroy(gameObject);
+                    // Game over
+                    if (waveSpawner.lives <= 0)
+                    {
+                        Destroy(GameController.players[0].gameObject);
+                        Destroy(GameController.instance.gameObject);
 
-                    SceneManager.LoadScene(0);
+                        SceneManager.LoadScene(0);
+                    }
                     return;
                 }
                 wavepointIndex++;
@@ -73,11 +78,5 @@ public class enemy : MonoBehaviour
 
             Destroy(gameObject);
         }
-    }
-
-    public void UpdateUnitHealth()
-    {
-        health -= 25;
-        healthbar.fillAmount = health / starthealth;
     }
 }

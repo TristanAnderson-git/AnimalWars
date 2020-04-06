@@ -10,6 +10,9 @@ public class ActionGatherResource : Action
     public override void Reset()
     {
         base.Reset();
+
+        unit = null;
+        storage = null;
     }
 
     public ActionGatherResource()

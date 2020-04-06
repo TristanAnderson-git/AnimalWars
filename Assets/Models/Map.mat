@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Map
+  m_Shader: {fileID: 4800000, guid: 70a5ecb1d67d536479b823239ca5ed02, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Metallic: 0
+    - _Mode: 0
+    - _MountainLevel: 0.61
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _SandLevel: 0.225
+    - _SeaLevel: 0
+    - _ShadowStrength: 0.152
+    - _SmoothnessTextureChannel: 0
+    - _SnowLevel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _WaterLevel: 0
+    - _ZWrite: 1
+    - __dirty: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Gradient: {r: 0.1462264, g: 1, b: 0.7363989, a: 1}
+    - _MountainGradient: {r: 0.5651032, g: 0.7830189, b: 0.7596708, a: 1}
+    - _MountainNormal: {r: 0.6969562, g: 0.7735849, b: 0.7713792, a: 1}
+    - _MountainShadow: {r: 0.3423372, g: 0.418257, b: 0.4622642, a: 1}
+    - _Normal: {r: 0.5686275, g: 1, b: 0.427451, a: 0}
+    - _SandGradient: {r: 1, g: 0.6608717, b: 0.5707547, a: 1}
+    - _SandNormal: {r: 1, g: 0.9019346, b: 0.5801887, a: 1}
+    - _SandShadow: {r: 0.804, g: 0.637513, b: 0.4057925, a: 1}
+    - _Shadow: {r: 0.4039216, g: 1, b: 0.6627451, a: 0}
+    - _SnowGradient: {r: 0.5651032, g: 0.7830189, b: 0.7596708, a: 1}
+    - _SnowNornal: {r: 1, g: 1, b: 1, a: 1}
+    - _SnowShadow: {r: 0.612985, g: 0.8617717, b: 0.8962264, a: 1}

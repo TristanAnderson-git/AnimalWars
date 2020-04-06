@@ -84,7 +84,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3179933255274001211}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cee72e3f5b639a543b2f6cd07a21aa22, type: 3}
+  m_Script: {fileID: 11500000, guid: bf0d82407dfed88448eceaabe8d18466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
@@ -93,10 +93,10 @@ MonoBehaviour:
   stats:
     speed: 0
     attack: 25
-    harvestPerSecond: 3
+    harvestPerSecond: 1
   storage:
     type: 0
-    maxHarvest: 10
+    maxHarvest: 3
     amountHarvested: 0
 --- !u!114 &3179933255274001214
 MonoBehaviour:
@@ -127,6 +127,7 @@ MonoBehaviour:
   target: {fileID: 0}
   minExecDist: 2.3
   cost: 1
+  repeatOnCompletion: 0
   inRange: 0
   resourceSink:
     serializedVersion: 2
@@ -147,6 +148,7 @@ MonoBehaviour:
   target: {fileID: 0}
   minExecDist: 4
   cost: 1
+  repeatOnCompletion: 1
   inRange: 0
 --- !u!114 &1173967369
 MonoBehaviour:
@@ -164,6 +166,7 @@ MonoBehaviour:
   target: {fileID: 0}
   minExecDist: 2
   cost: 1
+  repeatOnCompletion: 1
   inRange: 0
   enemyLayer:
     serializedVersion: 2
@@ -184,6 +187,7 @@ MonoBehaviour:
   target: {fileID: 0}
   minExecDist: 1.5
   cost: 1
+  repeatOnCompletion: 1
   inRange: 0
 --- !u!114 &7242507247237156192
 MonoBehaviour:
@@ -201,6 +205,7 @@ MonoBehaviour:
   target: {fileID: 0}
   minExecDist: 0
   cost: 1
+  repeatOnCompletion: 0
   inRange: 0
 --- !u!1 &8252829079089300509
 GameObject:

@@ -69,14 +69,13 @@ public class Unit : Entity, GOAP.Interface
     }
 
     HashSet<KeyValuePair<ActionKey, object>> worldData = new HashSet<KeyValuePair<ActionKey, object>>
-        {
+    {
             new KeyValuePair<ActionKey, object>(ActionKey.StayAlive, false),
             new KeyValuePair<ActionKey, object>(ActionKey.KillEnemy, false),
-            new KeyValuePair<ActionKey, object>(ActionKey.DestroyBase, false),
-            new KeyValuePair<ActionKey, object>(ActionKey.DefendBase, false),
             new KeyValuePair<ActionKey, object>(ActionKey.HarvestResource, false),
             new KeyValuePair<ActionKey, object>(ActionKey.GatherResource, false)
-        };
+    };
+    
     public HashSet<KeyValuePair<ActionKey, object>> GetWorldState()
     {
         return worldData;
@@ -94,7 +93,7 @@ public class Unit : Entity, GOAP.Interface
 
     public void PlanAborted(Action aborter)
     {
-        ResetActiveGoal();
+        //ResetActiveGoal();
     }
 
     public void PlanFailed(HashSet<KeyValuePair<ActionKey, object>> failedGoal)
@@ -105,9 +104,10 @@ public class Unit : Entity, GOAP.Interface
     {
     }
 
-    public void ActionsFinished()
+    public void ActionsFinished(Action action)
     {
-        //ResetActiveGoal();
+        //if (!action.repeatOnCompletion)
+        //    ResetActiveGoal();
     }
 
     public void ResetActiveGoal()
@@ -119,15 +119,13 @@ public class Unit : Entity, GOAP.Interface
     public bool MoveAgent(Action nextAction)
     {
         navAgent.stoppingDistance = nextAction.minExecDist;
-        navAgent.isStopped = false;
-
+        
         if (nextAction.target != null)
         {
             navAgent.SetDestination(nextAction.target.transform.position);
-            
-            if (navAgent.remainingDistance <= navAgent.stoppingDistance)
+
+            if (!navAgent.pathPending && navAgent.pathStatus == NavMeshPathStatus.PathComplete && navAgent.remainingDistance <= nextAction.minExecDist)
             {
-                navAgent.isStopped = true;
                 navAgent.ResetPath();
                 nextAction.inRange = true;
                 return true;

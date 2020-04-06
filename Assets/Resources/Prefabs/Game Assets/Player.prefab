@@ -126,7 +126,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4593690233572715782}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01a2cc242bca6474c8c7194c518847b5, type: 3}
   m_Name: 
@@ -273,6 +273,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4593690233572715781}
     m_Modifications:
+    - target: {fileID: 4476716529116044854, guid: 5d62a038eca89354fa9a78e9b1901416,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 880e9a5e22f5a0b42aef2703a02abef8, type: 2}
+    - target: {fileID: 6402621196240191816, guid: 5d62a038eca89354fa9a78e9b1901416,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6402621196240191816, guid: 5d62a038eca89354fa9a78e9b1901416,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6402621196240191816, guid: 5d62a038eca89354fa9a78e9b1901416,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6402621196240191816, guid: 5d62a038eca89354fa9a78e9b1901416,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8076989433020707504, guid: 5d62a038eca89354fa9a78e9b1901416,
         type: 3}
       propertyPath: m_Name
@@ -398,31 +423,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 07515933e69cade47beb82e14840ce2f, type: 2}
-    - target: {fileID: 6402621196240191816, guid: 5d62a038eca89354fa9a78e9b1901416,
-        type: 3}
-      propertyPath: playOnAwake
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6402621196240191816, guid: 5d62a038eca89354fa9a78e9b1901416,
-        type: 3}
-      propertyPath: ShapeModule.radius.value
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6402621196240191816, guid: 5d62a038eca89354fa9a78e9b1901416,
-        type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6402621196240191816, guid: 5d62a038eca89354fa9a78e9b1901416,
-        type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 4476716529116044854, guid: 5d62a038eca89354fa9a78e9b1901416,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 880e9a5e22f5a0b42aef2703a02abef8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d62a038eca89354fa9a78e9b1901416, type: 3}
 --- !u!4 &822348643794903434 stripped

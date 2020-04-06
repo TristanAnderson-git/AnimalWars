@@ -8,10 +8,8 @@ public class waveSpawner : MonoBehaviour
     static waveSpawner instance;
     public static uint numberOfEnemies;
 
-    public float startUnithealth = 100;
-    [HideInInspector] public float Unithealth;
     [Header("unity stuff")]
-    public Image Unithealthbar;
+    public Image baseHealth;
 
     // Start is called before the first frame update
     public Transform enemyPrefab;
@@ -24,8 +22,7 @@ public class waveSpawner : MonoBehaviour
 
     private int waveNumber = 0;
     private float timeRemaining = 0;
-
-   
+    public static int lives = 3; 
 
     void Start()
     {
@@ -36,8 +33,6 @@ public class waveSpawner : MonoBehaviour
         }
 
         instance = this;
-
-        Unithealth = startUnithealth;
     }
 
     void Update()
@@ -48,6 +43,8 @@ public class waveSpawner : MonoBehaviour
             timeRemaining -= Time.deltaTime;
 
         waveCountDownText.SetText((Mathf.FloorToInt(timeRemaining) + 1).ToString());
+
+        baseHealth.fillAmount = Mathf.Clamp((float)lives / 3f, 0, 1);
     }
 
     IEnumerator spawnWave()
@@ -82,11 +79,6 @@ public class waveSpawner : MonoBehaviour
 
     public void UpdateEnemyCount()
     {
-        instance.enemyCountText.SetText(" " + numberOfEnemies);
-    }
-
-    public void UpdateUnitHealth()
-    {
-
+        instance.enemyCountText.SetText(numberOfEnemies.ToString());
     }
 }

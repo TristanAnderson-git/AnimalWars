@@ -9,6 +9,7 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
+/Assets/AssetStoreTools*
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
@@ -58,3 +59,10 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Other
+/Assets/ShaderForge/
+/Assets/ShaderForge.meta
+/Assets/AmplifyShaderEditor/
+/Assets/AmplifyShaderEditor.meta
+/Assets/AssetStoreTools/
+/Assets/AssetStoreTools.meta

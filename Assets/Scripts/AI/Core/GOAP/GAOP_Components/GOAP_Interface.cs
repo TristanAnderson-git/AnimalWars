@@ -11,7 +11,7 @@ namespace GOAP
         void PlanFound(HashSet<KeyValuePair<GOAP.ActionKey, object>> goal, Queue<GOAP.Action> actions);
         void PlanAborted(GOAP.Action aborter);
 
-        void ActionsFinished();
+        void ActionsFinished(GOAP.Action action);
 
         bool MoveAgent(GOAP.Action nextAction);
     }
